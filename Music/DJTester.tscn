@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=3 uid="uid://clt4p64jpvsed"]
+
+[ext_resource type="PackedScene" uid="uid://d4fostg4cyahx" path="res://Music/DJ.tscn" id="1_6slx4"]
+
+[node name="DjTester" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dj" parent="." instance=ExtResource("1_6slx4")]
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 286.0
+offset_right = 248.0
+offset_bottom = 317.0
+text = "Fade in Drums
+"
+
+[node name="Button9" type="Button" parent="."]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 398.0
+offset_right = 499.0
+offset_bottom = 429.0
+text = "Start Chords (no fade)"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 339.0
+offset_right = 248.0
+offset_bottom = 370.0
+text = "Fade out Drums
+"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 284.0
+offset_right = 405.0
+offset_bottom = 315.0
+text = "Fade in Bass
+"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 337.0
+offset_right = 417.0
+offset_bottom = 368.0
+text = "Fade out Bass
+"
+
+[node name="Button5" type="Button" parent="."]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 284.0
+offset_right = 572.0
+offset_bottom = 315.0
+text = "Fade in Bells
+"
+
+[node name="Button6" type="Button" parent="."]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 337.0
+offset_right = 584.0
+offset_bottom = 368.0
+text = "Fade out Bells
+"
+
+[node name="Button7" type="Button" parent="."]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 281.0
+offset_right = 740.0
+offset_bottom = 312.0
+text = "Fade in Chords
+"
+
+[node name="Button8" type="Button" parent="."]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 334.0
+offset_right = 752.0
+offset_bottom = 365.0
+text = "Fade out Chords
+"
+
+[connection signal="pressed" from="Button" to="Dj" method="fade_in_drums"]
+[connection signal="pressed" from="Button9" to="Dj" method="sharp_fade_chords"]
+[connection signal="pressed" from="Button2" to="Dj" method="fade_out_drums"]
+[connection signal="pressed" from="Button3" to="Dj" method="fade_in_bass"]
+[connection signal="pressed" from="Button4" to="Dj" method="fade_out_bass"]
+[connection signal="pressed" from="Button5" to="Dj" method="fade_in_bells"]
+[connection signal="pressed" from="Button6" to="Dj" method="fade_out_bells"]
+[connection signal="pressed" from="Button7" to="Dj" method="fade_in_chords"]
+[connection signal="pressed" from="Button8" to="Dj" method="fade_out_chords"]

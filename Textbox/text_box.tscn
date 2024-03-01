@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://bneswujtqpdjq"]
+
+[ext_resource type="Script" path="res://Textbox/TextBox.gd" id="1_j6lr0"]
+[ext_resource type="FontFile" uid="uid://c7s21g1megjwj" path="res://Textbox/Fonts/PixelOperator-Bold.ttf" id="2_lmgly"]
+[ext_resource type="AudioStream" uid="uid://bsolkw4pg08os" path="res://Textbox/blipSelect.wav" id="3_26xnm"]
+
+[sub_resource type="Gradient" id="Gradient_04fbh"]
+colors = PackedColorArray(0, 0, 0.215686, 1, 0, 0, 0.13, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n2l8f"]
+gradient = SubResource("Gradient_04fbh")
+width = 2
+height = 2
+fill_to = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jx726"]
+font = ExtResource("2_lmgly")
+font_size = 48
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(3, 3)
+
+[node name="TextBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j6lr0")
+textLines = Array[String](["This is my new text box!", "I can have as many lines as I want in it!", "It's very simple because I can edit them in the inspector!"])
+
+[node name="Noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_26xnm")
+volume_db = -13.308
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.05
+anchor_right = 0.9
+anchor_bottom = 0.35
+offset_left = -1.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_n2l8f")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.05
+anchor_right = 0.99
+anchor_bottom = 0.95
+offset_left = -0.235999
+offset_top = 0.18
+offset_right = 0.636047
+offset_bottom = -8.57999
+grow_vertical = 2
+text = "This is some cool test text.
+It was written by a cool guy."
+label_settings = SubResource("LabelSettings_jx726")
+autowrap_mode = 2
+justification_flags = 0
+clip_text = true
+text_overrun_behavior = 2

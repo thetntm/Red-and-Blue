@@ -1,0 +1,222 @@
+[gd_scene load_steps=23 format=3 uid="uid://d08elk5st0yjl"]
+
+[ext_resource type="Texture2D" uid="uid://bumntwtk16m5q" path="res://Dither (player Character)/Dither1.png" id="1_7wuhx"]
+[ext_resource type="Script" path="res://Dither (player Character)/player.gd" id="1_jmui3"]
+[ext_resource type="Texture2D" uid="uid://bnrdxbhespi4y" path="res://Dither (player Character)/Dither2.png" id="3_6gx2i"]
+[ext_resource type="Texture2D" uid="uid://cjcjgptxsvotr" path="res://Dither (player Character)/Dither3.png" id="4_am6mo"]
+[ext_resource type="Texture2D" uid="uid://c0464hn05cm2m" path="res://Dither (player Character)/Dither4.png" id="5_cf8of"]
+[ext_resource type="Texture2D" uid="uid://bs3tlatjplune" path="res://Dither (player Character)/Dither5.png" id="6_g78of"]
+[ext_resource type="Texture2D" uid="uid://kqak3gv0vasn" path="res://Dither (player Character)/Dither6.png" id="7_7okgg"]
+[ext_resource type="Shader" path="res://shaders/invisible.gdshader" id="8_hx4v8"]
+[ext_resource type="Shader" path="res://shaders/RedChromatic.gdshader" id="8_ttm85"]
+[ext_resource type="Shader" path="res://shaders/Bluechromatic.gdshader" id="10_70vv1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_txak4"]
+radius = 4.0
+
+[sub_resource type="Animation" id="Animation_ohvw5"]
+resource_name = "Fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("redshade/redSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7okgg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blueshade/blueSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7okgg")]
+}
+
+[sub_resource type="Animation" id="Animation_5mldi"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("redshade/redSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_7wuhx")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blueshade/blueSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_7wuhx")]
+}
+
+[sub_resource type="Animation" id="Animation_2xeua"]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("redshade/redSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_g78of")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blueshade/blueSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_g78of")]
+}
+
+[sub_resource type="Animation" id="Animation_qmpfj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("redshade/redSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_7wuhx")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blueshade/blueSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7okgg")]
+}
+
+[sub_resource type="Animation" id="Animation_iv5b3"]
+resource_name = "Run"
+length = 0.333335
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("redshade/redSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_6gx2i"), ExtResource("4_am6mo"), ExtResource("1_7wuhx"), ExtResource("5_cf8of")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blueshade/blueSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0833335, 0.166667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_7wuhx"), ExtResource("3_6gx2i"), ExtResource("4_am6mo"), ExtResource("5_cf8of")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_veb4y"]
+_data = {
+"Fall": SubResource("Animation_ohvw5"),
+"Idle": SubResource("Animation_5mldi"),
+"Jump": SubResource("Animation_2xeua"),
+"RESET": SubResource("Animation_qmpfj"),
+"Run": SubResource("Animation_iv5b3")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5v4f"]
+shader = ExtResource("10_70vv1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l75be"]
+shader = ExtResource("8_hx4v8")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6d6f5"]
+size = Vector2(600, 300)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_akwwd"]
+shader = ExtResource("8_ttm85")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c8q06"]
+shader = ExtResource("8_hx4v8")
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_jmui3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_txak4")
+
+[node name="CharacterAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_veb4y")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+
+[node name="blueshade" type="CanvasGroup" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_j5v4f")
+use_parent_material = true
+
+[node name="blueSprite" type="Sprite2D" parent="blueshade"]
+texture = ExtResource("7_7okgg")
+
+[node name="invisibleBuffer" type="Sprite2D" parent="blueshade"]
+z_index = 1
+material = SubResource("ShaderMaterial_l75be")
+texture = SubResource("PlaceholderTexture2D_6d6f5")
+
+[node name="redshade" type="CanvasGroup" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_akwwd")
+use_parent_material = true
+
+[node name="redSprite" type="Sprite2D" parent="redshade"]
+texture = ExtResource("1_7wuhx")
+
+[node name="invisibleBuffer" type="Sprite2D" parent="redshade"]
+z_index = 1
+material = SubResource("ShaderMaterial_c8q06")
+position = Vector2(5, -3)
+texture = SubResource("PlaceholderTexture2D_6d6f5")

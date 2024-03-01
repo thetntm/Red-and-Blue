@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4fostg4cyahx"]
+
+[ext_resource type="Script" path="res://Music/DJ.gd" id="1_hl73s"]
+[ext_resource type="AudioStream" uid="uid://b76ln3ueklcom" path="res://Music/Amen.wav" id="2_6pgg2"]
+[ext_resource type="AudioStream" uid="uid://dl3jhqsx0c2i5" path="res://Music/BassFix.wav" id="3_fbfxf"]
+[ext_resource type="AudioStream" uid="uid://btrq83m8xbyas" path="res://Music/Bells.wav" id="4_0j8b2"]
+[ext_resource type="AudioStream" uid="uid://cfdbwva2p5pfa" path="res://Music/Elec Piano.wav" id="5_owsfk"]
+
+[node name="Dj" type="Node"]
+script = ExtResource("1_hl73s")
+
+[node name="Amen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6pgg2")
+volume_db = -11.0
+bus = &"Amen"
+
+[node name="Bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fbfxf")
+volume_db = -10.0
+bus = &"Bass"
+
+[node name="Bells" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0j8b2")
+volume_db = -10.0
+bus = &"Bells"
+
+[node name="Chords" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_owsfk")
+volume_db = -10.0
+bus = &"Chords"

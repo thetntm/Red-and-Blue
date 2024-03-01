@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://c46v0pejyyv5k"
+path="res://.godot/imported/Semyon Soviet.ttf-4cefc3ca4dca9b1ea0d3e82a7e27a29a.fontdata"
+
+[deps]
+
+source_file="res://Textbox/Fonts/Semyon Soviet.ttf"
+dest_files=["res://.godot/imported/Semyon Soviet.ttf-4cefc3ca4dca9b1ea0d3e82a7e27a29a.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

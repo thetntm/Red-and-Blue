@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfdbwva2p5pfa"
+path="res://.godot/imported/Elec Piano.wav-8cc3652fec06423897304e165627d1ca.sample"
+
+[deps]
+
+source_file="res://Music/Elec Piano.wav"
+dest_files=["res://.godot/imported/Elec Piano.wav-8cc3652fec06423897304e165627d1ca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
