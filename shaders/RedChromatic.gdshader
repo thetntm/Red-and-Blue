@@ -22,8 +22,8 @@ void fragment() {
 	
 	c.a = displacedAlpha;
 	
-	if (c.r > 0.001) {
-		c.a = 0.9;
+	if (c.r > 0.02) {
+		c.a = 0.5;
 	}
 	
 	COLOR = vec4(c.r, c.g, c.b, c.a);
