@@ -5,6 +5,7 @@ enum states {IDLE,WALKING,JUMPING,FALLING};
 @onready var animator : AnimationPlayer = $CharacterAnimator;
 @onready var blueSprite : Sprite2D = $blueshade/blueSprite;
 @onready var redSprite : Sprite2D = $redshade/redSprite;
+@onready var finalPassShader : FinalPass = $Camera2D/Finalpass;
 
 var state = states.IDLE;
 
@@ -25,11 +26,62 @@ var state = states.IDLE;
 @export var fall_gravity = 980 / 1.2;
 
 var useJumpGravity : bool = false;
+#why the fuck do collisions start at 1 what the fuck is wrong with you godot
+enum modes {NIL,GODOTISSTUPIDSOMETIMES,RED,BLUE,ALL}
+
+var currentMode = modes.RED;
+
+func _ready():
+	set_collision();
+	print(modes.RED)
+	print(modes.BLUE)
+	#set_collision_mask_value(currentMode,true);
+	pass;
+
+func set_collision():
+	set_collision_mask_value(modes.ALL,false);
+	set_collision_mask_value(modes.RED,false);
+	set_collision_mask_value(modes.BLUE,false);
+	set_collision_mask_value(currentMode,true);
+	finalPassShader.mode = currentMode;
 
 func _physics_process(delta):
 	#Get the direction:
-	var direction = Input.get_axis("ui_left", "ui_right")
-	#fuck fuck fuck why did I make this SO MUCH MORE COMPLICATED THAN IT NEEDED TO BE
+	var direction = Input.get_axis("Left", "Right")
+	stateMachine(direction,delta);
+	move_and_slide()
+
+func _input(event):
+	if Input.is_action_just_pressed("Shift"):
+		if currentMode == modes.RED:
+			currentMode = modes.BLUE;
+			set_collision();
+		elif currentMode == modes.BLUE:
+			currentMode = modes.RED;
+			set_collision();
+		else:
+			currentMode = modes.ALL;
+			set_collision();
+
+
+func updateState(newState):
+	state = newState;
+	updateAnimation();
+
+func updateAnimation():
+	match state:
+		states.IDLE:
+			animator.play("Idle")
+		states.WALKING:
+			animator.play("Run");
+		states.JUMPING:
+			useJumpGravity = true;
+			animator.play("Jump")
+		states.FALLING:
+			useJumpGravity = false;
+			animator.play("Fall")
+			
+func stateMachine(direction,delta):
 	match state:
 		states.IDLE:
 			if direction:
@@ -39,7 +91,7 @@ func _physics_process(delta):
 				updateState(states.WALKING);
 			else:
 				velocity.x = move_toward(velocity.x, 0, ACCEL * delta)
-			if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			if Input.is_action_just_pressed("Jump") and is_on_floor():
 				velocity.y = JUMP_VELOCITY
 				updateState(states.JUMPING);
 			if not is_on_floor(): #why wouldn't you be??????
@@ -53,7 +105,7 @@ func _physics_process(delta):
 			else:
 				updateState(states.IDLE);
 				velocity.x = move_toward(velocity.x, 0, ACCEL * delta)
-			if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			if Input.is_action_just_pressed("Jump") and is_on_floor():
 				velocity.y = JUMP_VELOCITY
 				updateState(states.JUMPING);
 			if not is_on_floor():
@@ -76,7 +128,7 @@ func _physics_process(delta):
 					updateState(states.WALKING)
 				else:
 					updateState(states.IDLE);
-			if Input.is_action_just_released("ui_accept"):
+			if Input.is_action_just_released("Jump"):
 				useJumpGravity = false;
 		states.FALLING:
 			if direction:
@@ -90,22 +142,3 @@ func _physics_process(delta):
 					updateState(states.WALKING)
 				else:
 					updateState(states.IDLE);
-	move_and_slide()
-
-func updateState(newState):
-	state = newState;
-	updateAnimation();
-	print(state);
-
-func updateAnimation():
-	match state:
-		states.IDLE:
-			animator.play("Idle")
-		states.WALKING:
-			animator.play("Run");
-		states.JUMPING:
-			useJumpGravity = true;
-			animator.play("Jump")
-		states.FALLING:
-			useJumpGravity = false;
-			animator.play("Fall")

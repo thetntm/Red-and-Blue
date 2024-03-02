@@ -1,6 +1,8 @@
 shader_type canvas_item;
 render_mode unshaded;
 
+uniform int mode = 0;
+
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
 uniform float blue_thresh = 0.01;
@@ -21,6 +23,16 @@ void fragment() {
 	
 	if (b > blue_thresh && r > red_thresh){
 		g = (r+b) / 2.0;
+	}
+	
+	if (mode == 2){
+		if (r < 0.0001){
+			b *= 0.5;
+		}
+	} else if (mode == 3){
+		if (b < 0.0001){
+			r *= 0.5;
+		}
 	}
 	
 	COLOR = vec4(r, g, b, 1.0);
