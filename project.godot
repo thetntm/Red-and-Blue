@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Red and Blue"
 run/main_scene="res://Levels/testLevel.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
@@ -38,5 +38,5 @@ environment/defaults/default_clear_color=Color(0, 0, 0, 0)
 
 displacement={
 "type": "vec2",
-"value": Vector2(5, 2.5)
+"value": Vector2(0, 0)
 }
