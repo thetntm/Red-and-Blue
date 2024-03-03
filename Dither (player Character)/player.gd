@@ -12,6 +12,8 @@ enum states {IDLE,WALKING,JUMPING,FALLING,DYING};
 
 var state = states.IDLE;
 
+var acceptingInput = true;
+
 #This math is from the video "making a jump you can actually use in godot" courtesy of Pefeper. Check out their video on it, the rest of the code for actually using these variables is mine.
 #@export var jump_height : float
 #@export var jump_time_to_peak : float
@@ -42,11 +44,12 @@ enum modes {NIL,GODOTISSTUPIDSOMETIMES,RED,BLUE,ALL}
 var currentMode = modes.RED;
 
 func _ready():
+	animator.play("Idle")
 	set_collision();
 	print(modes.RED)
 	print(modes.BLUE)
 	#set_collision_mask_value(currentMode,true);
-	pass;
+
 
 func set_collision():
 	set_collision_mask_value(modes.ALL,false);
@@ -65,11 +68,13 @@ func _process(delta):
 func _physics_process(delta):
 	#Get the direction:
 	var direction = Input.get_axis("Left", "Right")
+	if !acceptingInput:
+		direction = 0;
 	stateMachine(direction,delta);
 	move_and_slide()
 
 func _input(event):
-	if Input.is_action_just_pressed("Shift"):
+	if Input.is_action_just_pressed("Shift") && acceptingInput:
 		if shiftCooldown == 0.0:
 			resetShiftCooldown();
 			if currentMode == modes.RED:
@@ -85,6 +90,11 @@ func _input(event):
 				currentMode = modes.ALL;
 				set_collision();
 
+func disable():
+	acceptingInput = false;
+
+func enable():
+	acceptingInput = true;
 
 func updateState(newState):
 	state = newState;
@@ -128,7 +138,7 @@ func stateMachine(direction,delta):
 				updateState(states.WALKING);
 			else:
 				velocity.x = move_toward(velocity.x, 0, ACCEL * delta)
-			if Input.is_action_just_pressed("Jump") and is_on_floor():
+			if Input.is_action_just_pressed("Jump") and is_on_floor() && acceptingInput:
 				velocity.y = JUMP_VELOCITY
 				updateState(states.JUMPING);
 			if not is_on_floor(): #why wouldn't you be??????
@@ -142,7 +152,7 @@ func stateMachine(direction,delta):
 			else:
 				updateState(states.IDLE);
 				velocity.x = move_toward(velocity.x, 0, ACCEL * delta)
-			if Input.is_action_just_pressed("Jump") and is_on_floor():
+			if Input.is_action_just_pressed("Jump") and is_on_floor() and acceptingInput:
 				velocity.y = JUMP_VELOCITY
 				updateState(states.JUMPING);
 			if not is_on_floor():
@@ -165,7 +175,7 @@ func stateMachine(direction,delta):
 					updateState(states.WALKING)
 				else:
 					updateState(states.IDLE);
-			if Input.is_action_just_released("Jump"):
+			if Input.is_action_just_released("Jump") && acceptingInput:
 				useJumpGravity = false;
 		states.FALLING:
 			if direction:

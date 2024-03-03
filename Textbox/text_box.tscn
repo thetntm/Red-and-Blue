@@ -1,17 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bneswujtqpdjq"]
+[gd_scene load_steps=8 format=3 uid="uid://bneswujtqpdjq"]
 
 [ext_resource type="Script" path="res://Textbox/TextBox.gd" id="1_j6lr0"]
 [ext_resource type="FontFile" uid="uid://c7s21g1megjwj" path="res://Textbox/Fonts/PixelOperator-Bold.ttf" id="2_lmgly"]
+[ext_resource type="Texture2D" uid="uid://b0g0uu3pv0l02" path="res://Textbox/Panel.png" id="3_2adco"]
 [ext_resource type="AudioStream" uid="uid://bsolkw4pg08os" path="res://Textbox/blipSelect.wav" id="3_26xnm"]
-
-[sub_resource type="Gradient" id="Gradient_04fbh"]
-colors = PackedColorArray(0, 0, 0.215686, 1, 0, 0, 0.13, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_n2l8f"]
-gradient = SubResource("Gradient_04fbh")
-width = 2
-height = 2
-fill_to = Vector2(0, 1)
+[ext_resource type="Texture2D" uid="uid://dgobsl71ymgxx" path="res://Textbox/pfp_blue2.png" id="3_aos4o"]
+[ext_resource type="Texture2D" uid="uid://dwpnujcx4gbdw" path="res://Textbox/pfp_blue1.png" id="4_bcjoc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jx726"]
 font = ExtResource("2_lmgly")
@@ -25,49 +19,69 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j6lr0")
 textLines = Array[String](["This is my new text box!", "I can have as many lines as I want in it!", "It's very simple because I can edit them in the inspector!"])
+charSprites = Array[Texture2D]([ExtResource("4_bcjoc"), ExtResource("3_aos4o")])
 
 [node name="Noise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_26xnm")
 volume_db = -13.308
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
 anchor_top = 0.05
 anchor_right = 0.9
-anchor_bottom = 0.35
+anchor_bottom = 0.352
 offset_left = -1.0
-offset_right = 1.0
-offset_bottom = 2.0
+offset_right = -1640.0
+offset_bottom = -347.88
 grow_horizontal = 2
-texture = SubResource("GradientTexture2D_n2l8f")
+scale = Vector2(5, 5)
+texture = ExtResource("3_2adco")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
-[node name="Label" type="Label" parent="TextureRect"]
+[node name="pfp" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.01
-anchor_top = 0.05
-anchor_right = 0.99
-anchor_bottom = 0.95
-offset_left = -0.235999
-offset_top = 0.18
-offset_right = 0.636047
-offset_bottom = -8.57999
+anchor_left = 0.113281
+anchor_top = 0.0715278
+anchor_right = 0.230078
+anchor_bottom = 0.268056
+offset_right = 90.0
+offset_bottom = 85.0
+texture = ExtResource("4_bcjoc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.276
+anchor_top = 0.077
+anchor_right = 0.885
+anchor_bottom = 0.329
+offset_left = -0.560059
+offset_top = 0.119987
+offset_right = 0.399902
+offset_bottom = 0.23996
 grow_vertical = 2
-text = "This is some cool test text.
-It was written by a cool guy."
+text = "Test Text"
 label_settings = SubResource("LabelSettings_jx726")
 autowrap_mode = 2
 justification_flags = 0
 clip_text = true
 text_overrun_behavior = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true

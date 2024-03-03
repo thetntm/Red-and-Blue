@@ -1,4 +1,4 @@
-extends Node
+class_name DJ extends Node
 
 var amen : AudioStreamPlayer;
 var bass : AudioStreamPlayer;
@@ -19,7 +19,7 @@ var fader : Array[float] = [0.0,0.0,0.0,0.0];
 #ramp up the fader target from previous value to next value in fadespeed seconds.
 #in other words, lerp that value from 
 #
-var fadeSpeed = 5.0; #speed to fade in seconds.
+var fadeSpeed = 4.0; #speed to fade in seconds.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -101,7 +101,25 @@ func fade_in_chords():
 	
 func fade_out_chords():
 	set_fade(3,0.0)
+	
+func fade_out_all():
+	fade_out_bass()
+	fade_out_drums()
+	fade_out_chords()
+	fade_out_bells()
+	
+func start_drums():
+	set_fade_manual(0,1.0);
+	restart_all_channels();
 
-func sharp_fade_chords():
+func start_bass():
+	set_fade_manual(1,1.0);
+	restart_all_channels();
+
+func start_bells():
+	set_fade_manual(2,1.0);
+	restart_all_channels();
+
+func start_chords():
 	set_fade_manual(3,1.0);
 	restart_all_channels();
