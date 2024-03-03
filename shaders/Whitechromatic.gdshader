@@ -5,7 +5,7 @@ uniform int mode = 0;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
-uniform float blue_thresh = 0.01;
+uniform float blue_thresh = 0.1;
 
 uniform float red_thresh = 0.1;
 
@@ -15,6 +15,7 @@ void fragment() {
 	float b = texture(screen_texture, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE), 0.0).b;
 	
 	r *= 2.0;
+	b *= 2.0;
 	
 	if (r > red_thresh){
 		//r *= 2.0;

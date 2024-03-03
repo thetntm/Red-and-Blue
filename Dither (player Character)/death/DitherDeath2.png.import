@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4swct4glyn6i"
-path="res://.godot/imported/objects4.png-dc1b56d7e0cf484981426816df06c626.ctex"
+uid="uid://cpm3f4omi4k8v"
+path="res://.godot/imported/DitherDeath2.png-c74e2205b4e707137d123a523f7234ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemaps/objects4.png"
-dest_files=["res://.godot/imported/objects4.png-dc1b56d7e0cf484981426816df06c626.ctex"]
+source_file="res://Dither (player Character)/death/DitherDeath2.png"
+dest_files=["res://.godot/imported/DitherDeath2.png-c74e2205b4e707137d123a523f7234ca.ctex"]
 
 [params]
 

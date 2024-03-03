@@ -17,7 +17,7 @@ void fragment() {
 	c.b = 0.0;
 	
 	if (c.r < 0.0001 && displacedAlpha > 0.001) {
-		displacedAlpha *= 0.5;
+		displacedAlpha = 0.0;
 	}
 	
 	c.a = displacedAlpha;

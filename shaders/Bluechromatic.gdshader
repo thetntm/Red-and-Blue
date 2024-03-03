@@ -17,8 +17,14 @@ void fragment() {
 	c.r = 0.0;
 	
 	if (c.b < 0.0001 && displacedAlpha > 0.001) {
-		displacedAlpha *= 0.5;
+		displacedAlpha = 0.0;
 	}
 	
-	COLOR = vec4(c.r, c.g, c.b, displacedAlpha);
+	c.a = displacedAlpha;
+	
+	if (c.b > 0.02) {
+		c.a = 0.5;
+	}
+	
+	COLOR = vec4(c.r, c.g, c.b, c.a);
 }

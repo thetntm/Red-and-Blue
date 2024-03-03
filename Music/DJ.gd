@@ -39,7 +39,7 @@ func _process(delta):
 				fader[i] = clampf(lerpf(fader_previous[i],fader_target[i],fader_lerpProgress[i]),0.0,fader_target[i]);
 			else:
 				fader[i] = clampf(lerpf(fader_previous[i],fader_target[i],fader_lerpProgress[i]),fader_target[i],1.0);
-			AudioServer.set_bus_volume_db(i+1,lerpf(-72.0,0.0,fader[i]));
+			AudioServer.set_bus_volume_db(i+3,lerpf(-72.0,0.0,fader[i]));
 
 func set_fade(channel,fadeAmount):
 	fadeAmount = clampf(fadeAmount,0.0,1.0); #for SAFETY in case someone (ME) forgets how this works and tries to set this to a number greater than 1
@@ -54,7 +54,7 @@ func set_fade_manual(channel,fadeAmount):
 	fader_target[channel] = fadeAmount;
 	fader_previous[channel] = fader[channel];
 	fader[channel] = fadeAmount;
-	AudioServer.set_bus_volume_db(channel+1,lerpf(-72.0,0.0,fader[channel]));
+	AudioServer.set_bus_volume_db(channel+3,lerpf(-72.0,0.0,fader[channel]));
 
 func restart_all_channels():
 	#amen.stop()
@@ -67,10 +67,10 @@ func restart_all_channels():
 	chords.play()
 
 func set_all_channels_to_zero():
-	AudioServer.set_bus_volume_db(1,-72.0);
-	AudioServer.set_bus_volume_db(2,-72.0);
 	AudioServer.set_bus_volume_db(3,-72.0);
 	AudioServer.set_bus_volume_db(4,-72.0);
+	AudioServer.set_bus_volume_db(5,-72.0);
+	AudioServer.set_bus_volume_db(6,-72.0);
 
 func play_all():
 	amen.play()

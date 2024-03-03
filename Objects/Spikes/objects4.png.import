@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coscl21oadcyp"
-path="res://.godot/imported/objects1.png-9f8c06e2be79f0f84a1de0fef6733b28.ctex"
+uid="uid://c4swct4glyn6i"
+path="res://.godot/imported/objects4.png-324d51d80249026714fa58bfe9a64a05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemaps/objects1.png"
-dest_files=["res://.godot/imported/objects1.png-9f8c06e2be79f0f84a1de0fef6733b28.ctex"]
+source_file="res://Objects/Spikes/objects4.png"
+dest_files=["res://.godot/imported/objects4.png-324d51d80249026714fa58bfe9a64a05.ctex"]
 
 [params]
 

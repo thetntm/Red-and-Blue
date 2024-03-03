@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://clt4p64jpvsed"]
+[gd_scene load_steps=3 format=3 uid="uid://clt4p64jpvsed"]
 
 [ext_resource type="PackedScene" uid="uid://d4fostg4cyahx" path="res://Music/DJ.tscn" id="1_6slx4"]
+[ext_resource type="PackedScene" uid="uid://bv75bwsxpd6u7" path="res://escape_clause.tscn" id="2_0jn4v"]
 
 [node name="DjTester" type="Control"]
 layout_mode = 3
@@ -91,6 +92,8 @@ offset_right = 752.0
 offset_bottom = 365.0
 text = "Fade out Chords
 "
+
+[node name="Escape Clause" parent="." instance=ExtResource("2_0jn4v")]
 
 [connection signal="pressed" from="Button" to="Dj" method="fade_in_drums"]
 [connection signal="pressed" from="Button9" to="Dj" method="sharp_fade_chords"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnik0q52kcn81"]
+
+[ext_resource type="Script" path="res://Objects/portal.gd" id="1_mk1pm"]
+[ext_resource type="Shader" path="res://shaders/dualChromatic.gdshader" id="2_1hkxe"]
+[ext_resource type="Texture2D" uid="uid://bo73asdy0polf" path="res://Objects/objects7.png" id="2_7nloa"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yk5l3"]
+noise_type = 4
+seed = -20
+frequency = 0.0207
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jsj35"]
+noise_type = 0
+seed = -210
+frequency = 0.005
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l3wwa"]
+radius = 8.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kah8q"]
+shader = ExtResource("2_1hkxe")
+
+[node name="EndPortal" type="Area2D"]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_mk1pm")
+rotNoise = SubResource("FastNoiseLite_yk5l3")
+scaleNoise = SubResource("FastNoiseLite_jsj35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_l3wwa")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_kah8q")
+
+[node name="Objects7" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(0, -1)
+texture = ExtResource("2_7nloa")

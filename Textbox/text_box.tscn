@@ -15,7 +15,7 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jx726"]
 font = ExtResource("2_lmgly")
-font_size = 48
+font_size = 84
 shadow_size = 5
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(3, 3)
@@ -66,3 +66,8 @@ autowrap_mode = 2
 justification_flags = 0
 clip_text = true
 text_overrun_behavior = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

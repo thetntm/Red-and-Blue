@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgvxp82iyhjrh"
-path="res://.godot/imported/objects2.png-d00455fe3410e42c632c1211d70edb95.ctex"
+path="res://.godot/imported/objects2.png-fb7d325002e3f1b8a874115ce461b7cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemaps/objects2.png"
-dest_files=["res://.godot/imported/objects2.png-d00455fe3410e42c632c1211d70edb95.ctex"]
+source_file="res://Objects/Spikes/objects2.png"
+dest_files=["res://.godot/imported/objects2.png-fb7d325002e3f1b8a874115ce461b7cf.ctex"]
 
 [params]
 
