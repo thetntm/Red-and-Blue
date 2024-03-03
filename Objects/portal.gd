@@ -5,9 +5,9 @@ extends Area2D
 
 @onready var sprite : Sprite2D = $CanvasGroup/Objects7;
 
-signal portal_reached;
-
 var clock = 0.0;
+
+signal portal_entered;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,3 +21,8 @@ func _process(delta):
 	var scaleValue = scaleNoise.get_noise_1d(clock);
 	scaleValue = 1.0 + scaleValue * 0.5 - 0.25;
 	sprite.scale = Vector2(scaleValue,scaleValue);
+
+
+func _on_body_entered(body):
+	if body is Player:
+		emit_signal("portal_entered");

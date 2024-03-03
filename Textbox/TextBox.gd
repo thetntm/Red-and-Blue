@@ -32,7 +32,7 @@ func _ready():
 	hide();
 
 func _input(event):
-	if Input.is_action_just_pressed("ui_accept") && visible:
+	if Input.is_action_just_pressed("TextBoxAdvance") && visible:
 		if label.visible_ratio < 1.0:
 			label.visible_ratio = 1.0;
 		else:

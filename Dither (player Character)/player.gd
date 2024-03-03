@@ -6,9 +6,12 @@ enum states {IDLE,WALKING,JUMPING,FALLING,DYING};
 @onready var blueSprite : Sprite2D = $blueshade/blueSprite;
 @onready var redSprite : Sprite2D = $redshade/redSprite;
 @onready var finalPassShader : FinalPass = $Camera2D/Finalpass;
+@onready var redRay : RayCast2D = $RedRayCast;
+@onready var blueRay : RayCast2D = $BlueRayCast;
 
 @onready var warpSound1 : AudioStreamPlayer = $WarpSound1
 @onready var warpSound2 : AudioStreamPlayer = $WarpSound2
+@onready var noShift : AudioStreamPlayer = $youCant;
 
 var state = states.IDLE;
 
@@ -46,8 +49,6 @@ var currentMode = modes.RED;
 func _ready():
 	animator.play("Idle")
 	set_collision();
-	print(modes.RED)
-	print(modes.BLUE)
 	#set_collision_mask_value(currentMode,true);
 
 
@@ -59,7 +60,7 @@ func set_collision():
 	finalPassShader.mode = currentMode;
 	
 func resetShiftCooldown():
-	shiftCooldown = 0.7;
+	shiftCooldown = 0.4;
 
 func _process(delta):
 	shiftCooldown = clampf(shiftCooldown - delta,0.0,2.0);
@@ -73,22 +74,38 @@ func _physics_process(delta):
 	stateMachine(direction,delta);
 	move_and_slide()
 
+func shift():
+	resetShiftCooldown();
+	if currentMode == modes.RED:
+		if !blueRay.is_colliding():
+			currentMode = modes.BLUE;
+			set_collision();
+			warpSound2.play();
+		else:
+			noShift.play();
+			if state == states.IDLE:
+				animator.play("NoShiftIdle");
+			elif !is_on_floor():
+				animator.play("NoShiftAir");
+	elif currentMode == modes.BLUE:
+		if !redRay.is_colliding():
+			currentMode = modes.RED;
+			set_collision();
+			warpSound1.play();
+		else:
+			noShift.play();
+			if state == states.IDLE:
+				animator.play("NoShiftIdle");
+			elif !is_on_floor():
+				animator.play("NoShiftAir");
+	else:
+		currentMode = modes.ALL;
+		set_collision();
+
 func _input(event):
 	if Input.is_action_just_pressed("Shift") && acceptingInput:
 		if shiftCooldown == 0.0:
-			resetShiftCooldown();
-			if currentMode == modes.RED:
-				currentMode = modes.BLUE;
-				set_collision();
-				warpSound2.play();
-				resetShiftCooldown()
-			elif currentMode == modes.BLUE:
-				currentMode = modes.RED;
-				set_collision();
-				warpSound1.play();
-			else:
-				currentMode = modes.ALL;
-				set_collision();
+			shift();
 
 func disable():
 	acceptingInput = false;

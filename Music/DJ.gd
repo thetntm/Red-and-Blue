@@ -107,7 +107,7 @@ func fade_out_all():
 	fade_out_drums()
 	fade_out_chords()
 	fade_out_bells()
-	
+
 func start_drums():
 	set_fade_manual(0,1.0);
 	restart_all_channels();
@@ -123,3 +123,9 @@ func start_bells():
 func start_chords():
 	set_fade_manual(3,1.0);
 	restart_all_channels();
+
+func start_all():
+	start_drums()
+	start_bass()
+	start_bells()
+	start_chords()

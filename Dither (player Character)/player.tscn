@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d08elk5st0yjl"]
+[gd_scene load_steps=37 format=3 uid="uid://d08elk5st0yjl"]
 
 [ext_resource type="Texture2D" uid="uid://bumntwtk16m5q" path="res://Dither (player Character)/Dither1.png" id="1_7wuhx"]
 [ext_resource type="Script" path="res://Dither (player Character)/player.gd" id="1_jmui3"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bs3tlatjplune" path="res://Dither (player Character)/Dither5.png" id="6_g78of"]
 [ext_resource type="Texture2D" uid="uid://kqak3gv0vasn" path="res://Dither (player Character)/Dither6.png" id="7_7okgg"]
 [ext_resource type="Texture2D" uid="uid://clqx7g3hgqm6c" path="res://Dither (player Character)/death/DitherDeath1.png" id="8_g6l6j"]
-[ext_resource type="Shader" path="res://shaders/invisible.gdshader" id="8_hx4v8"]
 [ext_resource type="Shader" path="res://shaders/Whitechromatic.gdshader" id="8_k8eck"]
 [ext_resource type="Shader" path="res://shaders/RedChromatic.gdshader" id="8_ttm85"]
 [ext_resource type="Script" path="res://Dither (player Character)/Finalpass.gd" id="9_2yb5m"]
@@ -21,6 +20,9 @@
 [ext_resource type="AudioStream" uid="uid://b4juxywshccui" path="res://Dither (player Character)/death/ouch.wav" id="13_rkmih"]
 [ext_resource type="AudioStream" uid="uid://dudn7wss6ijss" path="res://SFX/WarpSound2.wav" id="14_0qg75"]
 [ext_resource type="AudioStream" uid="uid://cy2mgpgxva6u5" path="res://SFX/deathsound.wav" id="14_lfr8m"]
+[ext_resource type="Texture2D" uid="uid://0xrsutmof8i1" path="res://Dither (player Character)/Dither7.png" id="15_cxko4"]
+[ext_resource type="PackedScene" uid="uid://dj44bjkjwufj2" path="res://Tools/big_invisible_sprite.tscn" id="19_1l6y4"]
+[ext_resource type="AudioStream" uid="uid://p7elp07e00mm" path="res://SFX/youCan't.wav" id="22_g7m6g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_txak4"]
 radius = 4.0
@@ -169,6 +171,90 @@ tracks/1/keys = {
 "values": [ExtResource("6_g78of")]
 }
 
+[sub_resource type="Animation" id="Animation_cc4ow"]
+resource_name = "NoShiftAir"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("redshade/redSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_g6l6j")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blueshade/blueSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_g6l6j")]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"updateAnimation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_yfhyi"]
+resource_name = "NoShiftIdle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("redshade/redSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_cxko4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blueshade/blueSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_cxko4")]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"updateAnimation"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_qmpfj"]
 length = 0.001
 tracks/0/type = "value"
@@ -232,6 +318,8 @@ _data = {
 "Fall": SubResource("Animation_ohvw5"),
 "Idle": SubResource("Animation_5mldi"),
 "Jump": SubResource("Animation_2xeua"),
+"NoShiftAir": SubResource("Animation_cc4ow"),
+"NoShiftIdle": SubResource("Animation_yfhyi"),
 "RESET": SubResource("Animation_qmpfj"),
 "Run": SubResource("Animation_iv5b3")
 }
@@ -245,17 +333,8 @@ shader_parameter/red_thresh = 0.7
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j5v4f"]
 shader = ExtResource("10_70vv1")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l75be"]
-shader = ExtResource("8_hx4v8")
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6d6f5"]
-size = Vector2(600, 300)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_akwwd"]
 shader = ExtResource("8_ttm85")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c8q06"]
-shader = ExtResource("8_hx4v8")
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 0
@@ -290,9 +369,7 @@ use_parent_material = true
 [node name="blueSprite" type="Sprite2D" parent="blueshade"]
 texture = ExtResource("7_7okgg")
 
-[node name="invisibleBuffer" type="Sprite2D" parent="blueshade"]
-material = SubResource("ShaderMaterial_l75be")
-texture = SubResource("PlaceholderTexture2D_6d6f5")
+[node name="BigInvisibleSprite" parent="blueshade" instance=ExtResource("19_1l6y4")]
 
 [node name="redshade" type="CanvasGroup" parent="."]
 material = SubResource("ShaderMaterial_akwwd")
@@ -301,11 +378,7 @@ use_parent_material = true
 [node name="redSprite" type="Sprite2D" parent="redshade"]
 texture = ExtResource("1_7wuhx")
 
-[node name="invisibleBuffer" type="Sprite2D" parent="redshade"]
-material = SubResource("ShaderMaterial_c8q06")
-position = Vector2(-1, 0.999992)
-scale = Vector2(1.48333, 2.31333)
-texture = SubResource("PlaceholderTexture2D_6d6f5")
+[node name="BigInvisibleSprite" parent="redshade" instance=ExtResource("19_1l6y4")]
 
 [node name="WarpSound1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_gqj6t")
@@ -316,3 +389,17 @@ stream = ExtResource("14_0qg75")
 bus = &"SFX"
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
+
+[node name="RedRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 14)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="BlueRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 14)
+collision_mask = 4
+hit_from_inside = true
+
+[node name="youCant" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_g7m6g")
+bus = &"SFX"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj44bjkjwufj2"]
+
+[sub_resource type="Gradient" id="Gradient_i77ip"]
+offsets = PackedFloat32Array(0.41452)
+colors = PackedColorArray(0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uhj4v"]
+gradient = SubResource("Gradient_i77ip")
+width = 600
+height = 500
+
+[node name="BigInvisibleSprite" type="Sprite2D"]
+texture = SubResource("GradientTexture2D_uhj4v")

@@ -1,17 +1,11 @@
-[gd_scene load_steps=258 format=3 uid="uid://c8udbfxqepux1"]
+[gd_scene load_steps=256 format=3 uid="uid://c8udbfxqepux1"]
 
 [ext_resource type="Shader" path="res://shaders/dualChromatic.gdshader" id="1_d12d4"]
-[ext_resource type="Shader" path="res://shaders/invisible.gdshader" id="2_q8sii"]
+[ext_resource type="PackedScene" uid="uid://dj44bjkjwufj2" path="res://Tools/big_invisible_sprite.tscn" id="3_3hms4"]
 [ext_resource type="Texture2D" uid="uid://2gff2nw2vaad" path="res://Shard/angel_sheet.png" id="4_jj5m1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r1qxx"]
 shader = ExtResource("1_d12d4")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jvur2"]
-shader = ExtResource("2_q8sii")
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fctsh"]
-size = Vector2(600, 300)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cqsig"]
 atlas = ExtResource("4_jj5m1")
@@ -1776,12 +1770,8 @@ animations = [{
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 material = SubResource("ShaderMaterial_r1qxx")
 
-[node name="invisibleBuffer" type="Sprite2D" parent="CanvasGroup"]
-material = SubResource("ShaderMaterial_jvur2")
-position = Vector2(-1, -2)
-scale = Vector2(1.48333, 2.31333)
-texture = SubResource("PlaceholderTexture2D_fctsh")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasGroup"]
 sprite_frames = SubResource("SpriteFrames_vxk4a")
 autoplay = "default"
+
+[node name="BigInvisibleSprite" parent="CanvasGroup" instance=ExtResource("3_3hms4")]

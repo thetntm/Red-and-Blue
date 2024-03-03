@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcovg5jyu7axo"]
+[gd_scene load_steps=10 format=3 uid="uid://bcovg5jyu7axo"]
 
 [ext_resource type="Script" path="res://LevelLoader.gd" id="1_41tcm"]
 [ext_resource type="PackedScene" uid="uid://c8wysmoyt48s2" path="res://Levels/testLevel.tscn" id="2_scpnn"]
-[ext_resource type="PackedScene" uid="uid://d4fostg4cyahx" path="res://Music/DJ.tscn" id="4_e8a1b"]
 [ext_resource type="PackedScene" uid="uid://bv75bwsxpd6u7" path="res://Tools/escape_clause.tscn" id="4_n3vtp"]
 
 [sub_resource type="Animation" id="Animation_xf7v2"]
@@ -12,7 +11,7 @@ step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TextureRect:texture:gradient:offsets")
+tracks/0/path = NodePath("CanvasLayer/WipeGradient:texture:gradient:offsets")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +23,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/TextureRect:visible")
+tracks/1/path = NodePath("CanvasLayer/WipeGradient:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -53,7 +52,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TextureRect:texture:gradient:offsets")
+tracks/0/path = NodePath("CanvasLayer/WipeGradient:texture:gradient:offsets")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -65,7 +64,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/TextureRect:visible")
+tracks/1/path = NodePath("CanvasLayer/WipeGradient:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -82,7 +81,7 @@ step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TextureRect:texture:gradient:offsets")
+tracks/0/path = NodePath("CanvasLayer/WipeGradient:texture:gradient:offsets")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -94,7 +93,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/TextureRect:visible")
+tracks/1/path = NodePath("CanvasLayer/WipeGradient:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -155,7 +154,7 @@ libraries = {
 "": SubResource("AnimationLibrary_byarx")
 }
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="WipeGradient" type="TextureRect" parent="CanvasLayer"]
 visible = false
 z_index = 2
 anchors_preset = 15
@@ -166,6 +165,3 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_6p1ib")
 
 [node name="Escape Clause" parent="." instance=ExtResource("4_n3vtp")]
-
-[node name="DJ" parent="." instance=ExtResource("4_e8a1b")]
-unique_name_in_owner = true

@@ -5,6 +5,10 @@ signal level_ended(level);
 
 @onready var player = $Player;
 
+var dj : DJ;
+
+var firstProcess = true;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_parent() is LevelLoader:
@@ -16,13 +20,8 @@ func _ready():
 func start():
 	player.state = player.states.IDLE;
 	emit_signal("level_started");
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func endLevel():
-	emit_signal("level_ended",self);
+	print("Success")
+	print("DJ is: " + str(dj));
 
 func _on_end_portal_body_entered(body):
 	if body is Player:
@@ -30,4 +29,4 @@ func _on_end_portal_body_entered(body):
 		body.velocity = Vector2.ZERO;
 		body.blueSprite.hide();
 		body.redSprite.hide();
-		endLevel();
+		emit_signal("level_ended",self);

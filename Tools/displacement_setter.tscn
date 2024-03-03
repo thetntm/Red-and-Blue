@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6ehgrru2376p"]
+
+[ext_resource type="Script" path="res://Tools/DisplacementSetter.gd" id="1_ssd5m"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6al62"]
+seed = 150
+frequency = 0.3838
+fractal_type = 2
+fractal_octaves = 2
+
+[node name="DisplacementSetter" type="Node2D"]
+script = ExtResource("1_ssd5m")
+use_noise = true
+value = Vector2(5, 5)
+noise = SubResource("FastNoiseLite_6al62")
