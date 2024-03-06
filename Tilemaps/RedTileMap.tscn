@@ -510,10 +510,11 @@ scenes/4/scene = ExtResource("5_cnpak")
 physics_layer_0/collision_layer = 10
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain"
-terrain_set_0/terrain_0/color = Color(0.721569, 0.00392157, 0.945098, 1)
+terrain_set_0/terrain_0/color = Color(0.388235, 0.223529, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_8a8ff")
 sources/1 = SubResource("TileSetScenesCollectionSource_1of2c")
 
 [node name="RedTileMap" type="TileMap"]
 tile_set = SubResource("TileSet_x0ftw")
 format = 2
+layer_0/tile_data = PackedInt32Array(-65535, 131072, 3, -65536, 0, 3)

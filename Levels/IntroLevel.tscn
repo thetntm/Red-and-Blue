@@ -145,7 +145,6 @@ scale = Vector2(2.36, 1.766)
 
 [node name="EndPortal" parent="Levels/DualLevel" instance=ExtResource("7_ja001")]
 position = Vector2(904, 216)
-mode = 3
 
 [node name="Cutscenes" type="AnimationPlayer" parent="."]
 libraries = {

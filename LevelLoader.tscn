@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcovg5jyu7axo"]
+[gd_scene load_steps=16 format=3 uid="uid://bcovg5jyu7axo"]
 
 [ext_resource type="Script" path="res://LevelLoader.gd" id="1_0e57u"]
 [ext_resource type="PackedScene" uid="uid://cfctfjp5ubjka" path="res://Levels/IntroLevel.tscn" id="2_a0nxw"]
+[ext_resource type="PackedScene" uid="uid://cpvjgm45njdno" path="res://Levels/room2.tscn" id="2_cu2i4"]
 [ext_resource type="PackedScene" uid="uid://bv75bwsxpd6u7" path="res://Tools/escape_clause.tscn" id="3_q5bf5"]
 [ext_resource type="PackedScene" uid="uid://cey7w13sn3q0r" path="res://Levels/room1.tscn" id="3_vbhbq"]
 [ext_resource type="AudioStream" uid="uid://c37wx1vkkp3vr" path="res://SFX/noiseSweep.wav" id="4_7bmk3"]
@@ -165,7 +166,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0e57u")
-levels = Array[PackedScene]([ExtResource("2_a0nxw"), ExtResource("3_vbhbq")])
+levels = Array[PackedScene]([ExtResource("2_cu2i4"), ExtResource("2_a0nxw"), ExtResource("3_vbhbq")])
 
 [node name="Zoomin" type="Camera2D" parent="."]
 position = Vector2(1280, 720)
