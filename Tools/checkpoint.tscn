@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://2ecco645er0n"]
+
+[ext_resource type="Script" path="res://Tools/checkpoint.gd" id="1_eft7v"]
+[ext_resource type="PackedScene" uid="uid://cowcfll1k0ta2" path="res://Tools/trigger.tscn" id="2_vl61g"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xqoha"]
+normal = Vector2(-1, 0)
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource("1_eft7v")
+
+[node name="Trigger" parent="." instance=ExtResource("2_vl61g")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+shape = SubResource("WorldBoundaryShape2D_xqoha")
+
+[connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
+[connection signal="trigger" from="Trigger" to="." method="_on_trigger_trigger"]

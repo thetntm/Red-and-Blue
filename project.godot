@@ -11,17 +11,16 @@ config_version=5
 [application]
 
 config/name="Red and Blue"
-run/main_scene="res://Levels/testLevel.tscn"
+run/main_scene="res://LevelLoader.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=2560
+window/size/viewport_height=1440
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
-window/stretch/scale=0.5
 
 [input]
 

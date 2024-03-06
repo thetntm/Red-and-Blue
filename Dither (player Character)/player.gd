@@ -26,14 +26,14 @@ var acceptingInput = true;
 #@onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
 #@onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
-const TOPSPEED = 135.0;
-const ACCEL = TOPSPEED * 7; #it's high because it's gonna be scaled for delta time, TRUST ME.
+const TOPSPEED = 140.0;
+const ACCEL = TOPSPEED * 7.5; #it's high because it's gonna be scaled for delta time, TRUST ME.
 const AIRACCEL = ACCEL / 2.0;
 const JUMP_VELOCITY = -400.0 * 0.58;
 const jump_gravity = 980 / 2.5;
 const fall_gravity = 980 / 1.2;
 
-@export_range(0.0,1.0) var blue_gravity = 1.0;
+@export var use_pause_ahead = false;
 
 @onready var startingPoint : Vector2 = position;
 
@@ -68,6 +68,9 @@ func _process(delta):
 
 func _physics_process(delta):
 	#Get the direction:
+	if Input.is_action_just_pressed("Shift") && acceptingInput:
+		if shiftCooldown == 0.0:
+			shift();
 	var direction = Input.get_axis("Left", "Right")
 	if !acceptingInput:
 		direction = 0;
@@ -101,11 +104,6 @@ func shift():
 	else:
 		currentMode = modes.ALL;
 		set_collision();
-
-func _input(event):
-	if Input.is_action_just_pressed("Shift") && acceptingInput:
-		if shiftCooldown == 0.0:
-			shift();
 
 func disable():
 	acceptingInput = false;
@@ -141,9 +139,14 @@ func die():
 	state = states.DYING;
 
 func fall(gravity, delta):
-	if currentMode == modes.BLUE:
-		gravity *= blue_gravity;
+	if checkForPauseAhead():
+		gravity = 0;
 	velocity.y += gravity * delta
+
+func checkForPauseAhead():
+	if !is_on_floor() && use_pause_ahead && currentMode == modes.BLUE:
+		return true;
+	return false;
 
 func stateMachine(direction,delta):
 	match state:
@@ -177,9 +180,11 @@ func stateMachine(direction,delta):
 				updateState(states.FALLING)
 		states.JUMPING:
 			if direction:
-				velocity.x = clampf(velocity.x + direction * AIRACCEL * delta,-TOPSPEED,TOPSPEED)
+				if !checkForPauseAhead():
+					velocity.x = clampf(velocity.x + direction * AIRACCEL * delta,-TOPSPEED,TOPSPEED)
 			else:
-				velocity.x = move_toward(velocity.x, 0, AIRACCEL * delta);
+				if !checkForPauseAhead():
+					velocity.x = move_toward(velocity.x, 0, AIRACCEL * delta);
 			if not is_on_floor(): #why wouldn't they be????
 				if useJumpGravity:
 					fall(jump_gravity,delta);
@@ -196,9 +201,12 @@ func stateMachine(direction,delta):
 				useJumpGravity = false;
 		states.FALLING:
 			if direction:
-				velocity.x = clampf(velocity.x + direction * AIRACCEL * delta,-TOPSPEED,TOPSPEED)
+				if !checkForPauseAhead():
+					#soooo many indents UGH this code is GARBAGE
+					velocity.x = clampf(velocity.x + direction * AIRACCEL * delta,-TOPSPEED,TOPSPEED)
 			else:
-				velocity.x = move_toward(velocity.x, 0, AIRACCEL * delta);
+				if !checkForPauseAhead():
+					velocity.x = move_toward(velocity.x, 0, AIRACCEL * delta);
 			if not is_on_floor():
 				fall(fall_gravity,delta);
 			else:

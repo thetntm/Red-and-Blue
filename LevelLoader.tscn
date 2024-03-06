@@ -1,0 +1,217 @@
+[gd_scene load_steps=15 format=3 uid="uid://bcovg5jyu7axo"]
+
+[ext_resource type="Script" path="res://LevelLoader.gd" id="1_0e57u"]
+[ext_resource type="PackedScene" uid="uid://cfctfjp5ubjka" path="res://Levels/IntroLevel.tscn" id="2_a0nxw"]
+[ext_resource type="PackedScene" uid="uid://bv75bwsxpd6u7" path="res://Tools/escape_clause.tscn" id="3_q5bf5"]
+[ext_resource type="PackedScene" uid="uid://cey7w13sn3q0r" path="res://Levels/room1.tscn" id="3_vbhbq"]
+[ext_resource type="AudioStream" uid="uid://c37wx1vkkp3vr" path="res://SFX/noiseSweep.wav" id="4_7bmk3"]
+[ext_resource type="PackedScene" uid="uid://d4fostg4cyahx" path="res://Music/DJ.tscn" id="5_83j1g"]
+[ext_resource type="Texture2D" uid="uid://de5nihqwvrk16" path="res://icon.svg" id="7_w7cjd"]
+
+[sub_resource type="Animation" id="Animation_xf7v2"]
+resource_name = "DiagonalSweep"
+length = 2.0
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/WipeGradient:texture:gradient:offsets")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0166667, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedFloat32Array(0, 0.001), PackedFloat32Array(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/WipeGradient:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.11667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"clearLevel"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sweep")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4bo13"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/WipeGradient:texture:gradient:offsets")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedFloat32Array(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/WipeGradient:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hducb"]
+resource_name = "ReverseSweep"
+length = 2.0
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/WipeGradient:texture:gradient:offsets")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0166667, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedFloat32Array(0, 1), PackedFloat32Array(0, 0.001)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/WipeGradient:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.11667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.11667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"startLevel"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_byarx"]
+_data = {
+"DiagonalSweep": SubResource("Animation_xf7v2"),
+"RESET": SubResource("Animation_4bo13"),
+"ReverseSweep": SubResource("Animation_hducb")
+}
+
+[sub_resource type="Gradient" id="Gradient_ph1ex"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6p1ib"]
+gradient = SubResource("Gradient_ph1ex")
+width = 32
+height = 32
+fill_to = Vector2(1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qt5dq"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Loader" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0e57u")
+levels = Array[PackedScene]([ExtResource("2_a0nxw"), ExtResource("3_vbhbq")])
+
+[node name="Zoomin" type="Camera2D" parent="."]
+position = Vector2(1280, 720)
+zoom = Vector2(2, 2)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(2560, 1440)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Transitions" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_byarx")
+}
+
+[node name="WipeGradient" type="TextureRect" parent="CanvasLayer"]
+visible = false
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_6p1ib")
+
+[node name="Escape Clause" parent="." instance=ExtResource("3_q5bf5")]
+
+[node name="Sweep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7bmk3")
+volume_db = -12.48
+
+[node name="Dj" parent="." instance=ExtResource("5_83j1g")]
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1766.0
+offset_bottom = 1069.0
+texture = ExtResource("7_w7cjd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("ViewportTexture_qt5dq")

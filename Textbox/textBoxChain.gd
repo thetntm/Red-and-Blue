@@ -4,10 +4,13 @@ class_name TextBoxChain extends Control
 
 signal finished;
 
+signal started;
+
 var currentBox = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	currentBox = 0;
 	pass
 
 func openBox():
@@ -15,6 +18,8 @@ func openBox():
 	currentBox += 1;
 
 func begin():
+	emit_signal("started");
+	currentBox = 0; #something is wrong only sometimes and I have no
 	show();
 	openBox();
 

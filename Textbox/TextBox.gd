@@ -4,6 +4,8 @@ class_name Textbox extends Control
 
 @export var charSprites: Array[Texture2D];
 
+@export var skippable : bool = true;
+
 @onready var label : Label = $Label;
 
 @onready var noise : AudioStreamPlayer = $Noise;
@@ -24,6 +26,8 @@ var clock = 0.0;
 
 var frame = 0;
 
+var closing = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pfp.texture = charSprites[frame];
@@ -31,10 +35,11 @@ func _ready():
 	noise = $Noise;
 	hide();
 
-func _input(event):
+func _process(delta):
 	if Input.is_action_just_pressed("TextBoxAdvance") && visible:
 		if label.visible_ratio < 1.0:
-			label.visible_ratio = 1.0;
+			if label.visible_ratio > 0.0 && skippable:
+				label.visible_ratio = 1.0;
 		else:
 			goToNextLine();
 
@@ -76,7 +81,10 @@ func goToNextLine():
 		closeTextBox();
 
 func closeTextBox():
-	var parent = get_parent();
-	if parent is TextBoxChain:
-		parent.nextTextBox();
-	queue_free();
+	if !closing:
+		var parent = get_parent();
+		if parent is TextBoxChain:
+			parent.nextTextBox();
+		closing = true;
+		queue_free();
+

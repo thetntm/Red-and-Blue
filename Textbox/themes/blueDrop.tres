@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c8t5vqus4spxf"]
+
+[ext_resource type="FontFile" uid="uid://c7s21g1megjwj" path="res://Textbox/Fonts/PixelOperator-Bold.ttf" id="1_vdlsd"]
+
+[resource]
+Label/colors/font_shadow_color = Color(0, 0, 1, 1)
+Label/constants/outline_size = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_vdlsd")

@@ -1,30 +1,30 @@
-[gd_scene load_steps=8 format=3 uid="uid://bneswujtqpdjq"]
+[gd_scene load_steps=9 format=3 uid="uid://bneswujtqpdjq"]
 
 [ext_resource type="Script" path="res://Textbox/TextBox.gd" id="1_j6lr0"]
-[ext_resource type="FontFile" uid="uid://c7s21g1megjwj" path="res://Textbox/Fonts/PixelOperator-Bold.ttf" id="2_lmgly"]
+[ext_resource type="Theme" uid="uid://c16khq8ti63x2" path="res://Textbox/themes/redDrop.tres" id="1_k085m"]
 [ext_resource type="Texture2D" uid="uid://b0g0uu3pv0l02" path="res://Textbox/Panel.png" id="3_2adco"]
 [ext_resource type="AudioStream" uid="uid://bsolkw4pg08os" path="res://Textbox/blipSelect.wav" id="3_26xnm"]
 [ext_resource type="Texture2D" uid="uid://dgobsl71ymgxx" path="res://Textbox/pfp_blue2.png" id="3_aos4o"]
 [ext_resource type="Texture2D" uid="uid://dwpnujcx4gbdw" path="res://Textbox/pfp_blue1.png" id="4_bcjoc"]
+[ext_resource type="Shader" path="res://shaders/UIChromatic.gdshader" id="7_h102k"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_jx726"]
-font = ExtResource("2_lmgly")
-font_size = 84
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(3, 3)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nrwoj"]
+shader = ExtResource("7_h102k")
+shader_parameter/r_displacement = Vector2(2, 1)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-2, -1)
 
 [node name="TextBox" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = 1.0
-offset_right = -2.0
-offset_bottom = 1.0
+offset_right = -2048.0
+offset_bottom = -1152.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
+theme = ExtResource("1_k085m")
 script = ExtResource("1_j6lr0")
 textLines = Array[String](["This is my new text box!", "I can have as many lines as I want in it!", "It's very simple because I can edit them in the inspector!"])
 charSprites = Array[Texture2D]([ExtResource("4_bcjoc"), ExtResource("3_aos4o")])
@@ -36,15 +36,15 @@ volume_db = -13.308
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.05
-anchor_right = 0.9
-anchor_bottom = 0.352
-offset_left = -1.0
-offset_right = -1640.0
-offset_bottom = -347.88
+anchor_left = 0.0940938
+anchor_top = 0.0554722
+anchor_right = 0.906094
+anchor_bottom = 0.416472
+offset_left = -0.176003
+offset_top = 0.0240002
+offset_right = 0.0799866
+offset_bottom = 0.0559921
 grow_horizontal = 2
-scale = Vector2(5, 5)
 texture = ExtResource("3_2adco")
 region_rect = Rect2(0, 0, 48, 48)
 patch_margin_left = 16
@@ -53,35 +53,47 @@ patch_margin_right = 16
 patch_margin_bottom = 16
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
-
-[node name="pfp" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.113281
-anchor_top = 0.0715278
-anchor_right = 0.230078
-anchor_bottom = 0.268056
-offset_right = 90.0
-offset_bottom = 85.0
-texture = ExtResource("4_bcjoc")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.276
-anchor_top = 0.077
-anchor_right = 0.885
-anchor_bottom = 0.329
-offset_left = -0.560059
-offset_top = 0.119987
-offset_right = 0.399902
-offset_bottom = 0.23996
+anchor_left = 0.313594
+anchor_top = 0.110694
+anchor_right = 0.874219
+anchor_bottom = 0.360278
+offset_left = -0.560135
+offset_top = 0.120129
+offset_right = -57.6001
+offset_bottom = -13.7601
 grow_vertical = 2
-text = "Test Text"
-label_settings = SubResource("LabelSettings_jx726")
+scale = Vector2(1.25, 1.25)
+text = "Oh, Hey!"
 autowrap_mode = 2
 justification_flags = 0
 clip_text = true
 text_overrun_behavior = 2
+
+[node name="pfp" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.222656
+anchor_top = 0.154861
+anchor_right = 0.345312
+anchor_bottom = 0.361806
+offset_left = -57.9999
+offset_top = -20.6
+offset_right = -27.7999
+offset_bottom = 7.79987
+texture = ExtResource("4_bcjoc")
 metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_nrwoj")
+layout_mode = 0
+offset_left = 47.0
+offset_top = 15.0
+offset_right = 465.0
+offset_bottom = 121.0

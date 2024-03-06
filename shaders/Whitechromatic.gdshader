@@ -17,13 +17,10 @@ void fragment() {
 	r *= 2.0;
 	b *= 2.0;
 	
-	if (r > red_thresh){
-		//r *= 2.0;
-		b *= 2.0;
-	}
-	
 	if (b > blue_thresh && r > red_thresh){
-		g = (r+b) / 2.0;
+		g = (r+b) / 1.45;
+		r = g;
+		b = g;
 	}
 	
 	if (mode == 2){
