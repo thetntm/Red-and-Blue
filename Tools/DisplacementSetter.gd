@@ -7,11 +7,11 @@ class_name DisplacementSetter extends Node2D
 
 @export var noise : Noise;
 
+@export var noise_effect = 4.0;
+
 var noise_value = Vector2(0,0);
 
 var distortion = Vector2(0,0);
-
-const noise_effect = 4.0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

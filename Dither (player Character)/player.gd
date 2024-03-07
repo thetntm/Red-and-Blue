@@ -35,6 +35,8 @@ const fall_gravity = 980 / 1.2;
 
 @export var use_pause_ahead = false;
 
+@export var shiftUnlocked = true;
+
 @onready var startingPoint : Vector2 = position;
 
 var useJumpGravity : bool = false;
@@ -79,31 +81,32 @@ func _physics_process(delta):
 
 func shift():
 	resetShiftCooldown();
-	if currentMode == modes.RED:
-		if !blueRay.is_colliding():
-			currentMode = modes.BLUE;
-			set_collision();
-			warpSound2.play();
+	if shiftUnlocked:
+		if currentMode == modes.RED:
+			if !blueRay.is_colliding():
+				currentMode = modes.BLUE;
+				set_collision();
+				warpSound2.play();
+			else:
+				noShift.play();
+				if state == states.IDLE:
+					animator.play("NoShiftIdle");
+				elif !is_on_floor():
+					animator.play("NoShiftAir");
+		elif currentMode == modes.BLUE:
+			if !redRay.is_colliding():
+				currentMode = modes.RED;
+				set_collision();
+				warpSound1.play();
+			else:
+				noShift.play();
+				if state == states.IDLE:
+					animator.play("NoShiftIdle");
+				elif !is_on_floor():
+					animator.play("NoShiftAir");
 		else:
-			noShift.play();
-			if state == states.IDLE:
-				animator.play("NoShiftIdle");
-			elif !is_on_floor():
-				animator.play("NoShiftAir");
-	elif currentMode == modes.BLUE:
-		if !redRay.is_colliding():
-			currentMode = modes.RED;
+			currentMode = modes.ALL;
 			set_collision();
-			warpSound1.play();
-		else:
-			noShift.play();
-			if state == states.IDLE:
-				animator.play("NoShiftIdle");
-			elif !is_on_floor():
-				animator.play("NoShiftAir");
-	else:
-		currentMode = modes.ALL;
-		set_collision();
 
 func disable():
 	acceptingInput = false;

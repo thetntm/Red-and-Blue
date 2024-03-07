@@ -8,3 +8,6 @@ func _on_body_entered(body):
 	if body is Player and not triggered:
 		emit_signal("trigger");
 		triggered = true;
+
+func reset():
+	triggered = false;

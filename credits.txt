@@ -1,0 +1,3 @@
+The primary font used in this game, "Pixel Operator Bold" is a CC0 Public Domain Font created by Jayvee Enaguas (HarvettFox96).
+The Shader "Just Chromatic Abberation" made by jecovier served as a baseline for most shaders in this project, and at some points (such as for the abberation on textbox outlines) is used directly.
+All other resources, music, and code for this project were made by me unless I'm forgetting some snippet of code I ripped from a tutorial somewhere.

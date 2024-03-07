@@ -1,0 +1,362 @@
+[gd_scene load_steps=27 format=3 uid="uid://bhclm3o51booh"]
+
+[ext_resource type="Shader" path="res://shaders/UIChromatic.gdshader" id="1_1m1j0"]
+[ext_resource type="Script" path="res://title_screen.gd" id="1_b7ch1"]
+[ext_resource type="Theme" uid="uid://bpmgyldx7d05y" path="res://Textbox/themes/noDrop.tres" id="1_c6rrx"]
+[ext_resource type="PackedScene" uid="uid://bcovg5jyu7axo" path="res://LevelLoader.tscn" id="2_fy6vf"]
+[ext_resource type="PackedScene" uid="uid://dj44bjkjwufj2" path="res://Tools/big_invisible_sprite.tscn" id="3_ar14b"]
+[ext_resource type="Shader" path="res://shaders/Bluechromatic.gdshader" id="4_vultn"]
+[ext_resource type="Shader" path="res://shaders/RedChromatic.gdshader" id="5_saclm"]
+[ext_resource type="Shader" path="res://shaders/dualChromatic.gdshader" id="6_h0wdn"]
+[ext_resource type="Shader" path="res://shaders/Whitechromatic.gdshader" id="7_882x0"]
+[ext_resource type="PackedScene" uid="uid://bv75bwsxpd6u7" path="res://Tools/escape_clause.tscn" id="8_awxe5"]
+[ext_resource type="PackedScene" uid="uid://b6ehgrru2376p" path="res://Tools/displacement_setter.tscn" id="8_j8gl5"]
+[ext_resource type="AudioStream" uid="uid://hcrnx1mefxgs" path="res://SFX/Accept.wav" id="11_1eqio"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4m14"]
+shader = ExtResource("1_1m1j0")
+shader_parameter/r_displacement = Vector2(2, 1)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-2, -1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w03w1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8segt"]
+font_size = 300
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fnbhb"]
+shader = ExtResource("4_vultn")
+
+[sub_resource type="LabelSettings" id="LabelSettings_pflg7"]
+font_size = 300
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qfms3"]
+shader = ExtResource("5_saclm")
+
+[sub_resource type="LabelSettings" id="LabelSettings_g312g"]
+font_size = 300
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_64xcs"]
+shader = ExtResource("6_h0wdn")
+
+[sub_resource type="LabelSettings" id="LabelSettings_kcyvp"]
+font_size = 159
+outline_size = 18
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1pnt"]
+shader = ExtResource("7_882x0")
+shader_parameter/mode = 0
+shader_parameter/blue_thresh = 0.1
+shader_parameter/red_thresh = 0.1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ebh4s"]
+frequency = 0.3264
+fractal_octaves = 1
+fractal_lacunarity = 0.0
+
+[sub_resource type="Animation" id="Animation_ab62u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DisplacementSetter:use_noise")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DisplacementSetter:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(200, 80)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DisplacementSetter:noise_effect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [50.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasGroup4/Label4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasGroup4/Label:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gypuf"]
+resource_name = "start"
+length = 1.50001
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DisplacementSetter:use_noise")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.125, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DisplacementSetter:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.125, 0.208333, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(200, 80), Vector2(300, 120), Vector2(300, 120), Vector2(0, 0)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transition_high")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 5.15,
+"start_offset": 0.0,
+"stream": ExtResource("11_1eqio")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DisplacementSetter:noise_effect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.5),
+"transitions": PackedFloat32Array(1, 1, 36.2918),
+"update": 0,
+"values": [50.0, 0.0, 10.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasGroup4/Label4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasGroup4/Label:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.375),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_game"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kujrr"]
+_data = {
+"RESET": SubResource("Animation_ab62u"),
+"start": SubResource("Animation_gypuf")
+}
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b7ch1")
+levelLoader = ExtResource("2_fy6vf")
+
+[node name="CanvasGroup3" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_g4m14")
+
+[node name="Label" type="Label" parent="CanvasGroup3"]
+material = SubResource("ShaderMaterial_w03w1")
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.07
+anchor_right = 0.5
+anchor_bottom = 0.07
+offset_left = 455.0
+offset_top = 100.8
+offset_right = 2105.0
+offset_bottom = 401.8
+grow_horizontal = 2
+theme = ExtResource("1_c6rrx")
+text = "RED and BLUE"
+label_settings = SubResource("LabelSettings_8segt")
+
+[node name="BigInvisibleSprite" parent="CanvasGroup3" instance=ExtResource("3_ar14b")]
+position = Vector2(1293.5, 739)
+scale = Vector2(4.605, 3.416)
+
+[node name="CanvasGroup2" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_fnbhb")
+
+[node name="Label3" type="Label" parent="CanvasGroup2"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.07
+anchor_right = 0.5
+anchor_bottom = 0.07
+offset_left = 1505.0
+offset_top = 101.0
+offset_right = 3155.0
+offset_bottom = 402.0
+grow_horizontal = 2
+theme = ExtResource("1_c6rrx")
+text = "BLUE"
+label_settings = SubResource("LabelSettings_pflg7")
+
+[node name="BigInvisibleSprite" parent="CanvasGroup2" instance=ExtResource("3_ar14b")]
+position = Vector2(1338.5, 752)
+scale = Vector2(5.46167, 4.008)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_qfms3")
+
+[node name="BigInvisibleSprite" parent="CanvasGroup" instance=ExtResource("3_ar14b")]
+position = Vector2(1293.5, 739)
+scale = Vector2(4.605, 3.416)
+
+[node name="Label2" type="Label" parent="CanvasGroup"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.07
+anchor_right = 0.5
+anchor_bottom = 0.07
+offset_left = 455.0
+offset_top = 100.8
+offset_right = 2105.0
+offset_bottom = 401.8
+grow_horizontal = 2
+theme = ExtResource("1_c6rrx")
+text = "RED"
+label_settings = SubResource("LabelSettings_g312g")
+
+[node name="CanvasGroup4" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_64xcs")
+
+[node name="Label4" type="Label" parent="CanvasGroup4"]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.612
+anchor_right = 0.5
+anchor_bottom = 0.612
+offset_left = 430.5
+offset_top = 719.78
+offset_right = 2129.5
+offset_bottom = 1042.78
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c6rrx")
+text = "PRESS START"
+label_settings = SubResource("LabelSettings_kcyvp")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasGroup4"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.612
+anchor_right = 0.5
+anchor_bottom = 0.612
+offset_left = 430.5
+offset_top = 719.78
+offset_right = 2129.5
+offset_bottom = 1042.78
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c6rrx")
+text = "PRESS START"
+label_settings = SubResource("LabelSettings_kcyvp")
+horizontal_alignment = 1
+
+[node name="BigInvisibleSprite" parent="CanvasGroup4" instance=ExtResource("3_ar14b")]
+position = Vector2(1293.5, 739)
+scale = Vector2(4.605, 3.416)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_i1pnt")
+layout_mode = 0
+offset_left = -45.0
+offset_top = -36.0
+offset_right = 2638.0
+offset_bottom = 1542.0
+
+[node name="Escape Clause" parent="." instance=ExtResource("8_awxe5")]
+position = Vector2(3, -3)
+
+[node name="DisplacementSetter" parent="." instance=ExtResource("8_j8gl5")]
+value = Vector2(200, 80)
+noise = SubResource("FastNoiseLite_ebh4s")
+noise_effect = 50.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kujrr")
+}
+
+[node name="Transition_high" type="AudioStreamPlayer" parent="."]
+volume_db = -4.01
