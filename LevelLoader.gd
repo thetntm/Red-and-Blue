@@ -10,20 +10,22 @@ class_name LevelLoader extends Control
 
 var currentLevel = 0;
 
-var levelReference : Level;
+var levelReference;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	levelReference = levels[currentLevel].instantiate();
 	subview.add_child(levelReference);
-	levelReference.level_ended.connect(_on_level_ended);
+	if levelReference is Level:
+		levelReference.level_ended.connect(_on_level_ended);
 	startLevel();
 	pass # Replace with function body.
 
 func loadCurrentLevel():
 	levelReference = levels[currentLevel].instantiate()
 	subview.add_child(levelReference);
-	levelReference.level_ended.connect(_on_level_ended);
+	if levelReference is Level:
+		levelReference.level_ended.connect(_on_level_ended);
 	transitions.play("ReverseSweep");
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,4 +44,5 @@ func clearLevel():
 		loadCurrentLevel();
 		
 func startLevel():
-	levelReference.start();
+	if levelReference is Level:
+		levelReference.start();

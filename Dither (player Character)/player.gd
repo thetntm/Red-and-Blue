@@ -37,6 +37,8 @@ const fall_gravity = 980 / 1.2;
 
 @export var shiftUnlocked = true;
 
+@export var jumpUnlocked = true;
+
 @onready var startingPoint : Vector2 = position;
 
 var useJumpGravity : bool = false;
@@ -135,11 +137,13 @@ func respawn():
 	position = startingPoint;
 	state = states.IDLE;
 	updateAnimation();
+	acceptingInput = true;
 
 func die():
 	velocity = Vector2(0,0);
 	animator.play("Death")
 	state = states.DYING;
+	acceptingInput = false;
 
 func fall(gravity, delta):
 	if checkForPauseAhead():
@@ -161,7 +165,7 @@ func stateMachine(direction,delta):
 				updateState(states.WALKING);
 			else:
 				velocity.x = move_toward(velocity.x, 0, ACCEL * delta)
-			if Input.is_action_just_pressed("Jump") and is_on_floor() && acceptingInput:
+			if Input.is_action_just_pressed("Jump") && jumpUnlocked and is_on_floor() && acceptingInput:
 				velocity.y = JUMP_VELOCITY
 				updateState(states.JUMPING);
 			if not is_on_floor(): #why wouldn't you be??????
@@ -175,7 +179,7 @@ func stateMachine(direction,delta):
 			else:
 				updateState(states.IDLE);
 				velocity.x = move_toward(velocity.x, 0, ACCEL * delta)
-			if Input.is_action_just_pressed("Jump") and is_on_floor() and acceptingInput:
+			if Input.is_action_just_pressed("Jump") && jumpUnlocked and is_on_floor() and acceptingInput:
 				velocity.y = JUMP_VELOCITY
 				updateState(states.JUMPING);
 			if not is_on_floor():

@@ -13,7 +13,7 @@ noise_type = 0
 seed = -210
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l3wwa"]
-radius = 4.40454
+radius = 8.40238
 
 [node name="EndPortal" type="Area2D"]
 scale = Vector2(2.5, 2.5)

@@ -1,12 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxjk5gr8luws8"]
+[gd_scene load_steps=10 format=3 uid="uid://cxjk5gr8luws8"]
 
 [ext_resource type="Theme" uid="uid://c16khq8ti63x2" path="res://Textbox/themes/redDrop.tres" id="1_sxae5"]
 [ext_resource type="Script" path="res://Textbox/TextBox.gd" id="2_6ab7a"]
 [ext_resource type="Texture2D" uid="uid://dwpnujcx4gbdw" path="res://Textbox/pfp_blue1.png" id="3_346p3"]
 [ext_resource type="Texture2D" uid="uid://dgobsl71ymgxx" path="res://Textbox/pfp_blue2.png" id="4_eiio3"]
 [ext_resource type="AudioStream" uid="uid://bsolkw4pg08os" path="res://Textbox/blipSelect.wav" id="5_1ywqh"]
-[ext_resource type="Texture2D" uid="uid://b0g0uu3pv0l02" path="res://Textbox/Panel.png" id="6_7r67u"]
 [ext_resource type="Shader" path="res://shaders/UIChromatic.gdshader" id="7_8nobq"]
+
+[sub_resource type="Gradient" id="Gradient_vgdej"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.690196)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hac01"]
+gradient = SubResource("Gradient_vgdej")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nrwoj"]
 shader = ExtResource("7_8nobq")
@@ -34,19 +40,18 @@ stream = ExtResource("5_1ywqh")
 volume_db = -13.308
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0940938
 anchor_top = 0.0554722
 anchor_right = 0.906094
 anchor_bottom = 0.416472
-offset_left = -0.176003
-offset_top = 0.0240002
-offset_right = 0.0799866
-offset_bottom = 0.0559921
+offset_left = -0.176025
+offset_top = 96.024
+offset_right = 0.0799561
+offset_bottom = 96.056
 grow_horizontal = 2
-texture = ExtResource("6_7r67u")
+texture = SubResource("GradientTexture2D_hac01")
 region_rect = Rect2(0, 0, 48, 48)
 patch_margin_left = 16
 patch_margin_top = 16
@@ -65,12 +70,14 @@ anchor_top = 0.110694
 anchor_right = 0.874219
 anchor_bottom = 0.360278
 offset_left = -96.5601
-offset_top = 72.1201
+offset_top = 92.1201
 offset_right = -76.6001
-offset_bottom = 58.2399
+offset_bottom = 78.2399
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
-text = "Oh, Hey!"
+text = "Oh, Hey!
+this is a test
+of multilines"
 autowrap_mode = 2
 justification_flags = 0
 clip_text = true
@@ -93,6 +100,7 @@ texture = ExtResource("3_346p3")
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_nrwoj")
 layout_mode = 0
 offset_left = 47.0

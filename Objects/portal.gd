@@ -23,8 +23,7 @@ func _process(delta):
 	clock += delta;
 	var noiseValue = rotNoise.get_noise_1d(clock);
 	sprite.rotation = noiseValue * 4 * PI - 2 * PI;
-	var scaleValue = scaleNoise.get_noise_1d(clock) * 3.0 + 1.5;
-	scaleValue = 1.0 + scaleValue * 0.5 - 0.25;
+	var scaleValue = scaleNoise.get_noise_1d(clock) * 0.5 + 1.0;
 	sprite.scale = Vector2(scaleValue,scaleValue);
 	if playerInPortal:
 		compareModes();

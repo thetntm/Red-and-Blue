@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca5itua3lt7ql"]
+
+[ext_resource type="Texture2D" uid="uid://c1538mgayyww1" path="res://Shard/Island5.png" id="1_yf36h"]
+[ext_resource type="Texture2D" uid="uid://mnjh4pl6tot0" path="res://Shard/Island1.png" id="2_07gor"]
+[ext_resource type="Texture2D" uid="uid://bouacokwh2xpg" path="res://Shard/Island2.png" id="3_r84dy"]
+[ext_resource type="Texture2D" uid="uid://b3dlkq4jjgfqi" path="res://Shard/Island3.png" id="4_kuvbs"]
+[ext_resource type="Texture2D" uid="uid://di356x5pxh4e4" path="res://Shard/Island4.png" id="5_raapc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cuj1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yf36h")
+}],
+"loop": true,
+"name": &"Shatter",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_07gor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r84dy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kuvbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_raapc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_raapc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kuvbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r84dy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_07gor")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.5
+}]
+
+[node name="ShatteredMoon" type="AnimatedSprite2D"]
+position = Vector2(-14, 0)
+sprite_frames = SubResource("SpriteFrames_cuj1k")
+frame_progress = 0.679248
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 235.0
+offset_top = -153.0
+offset_right = 517.0
+offset_bottom = 186.0
+color = Color(0, 0, 0, 1)

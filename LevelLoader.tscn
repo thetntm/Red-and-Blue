@@ -1,12 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://bcovg5jyu7axo"]
+[gd_scene load_steps=19 format=3 uid="uid://bcovg5jyu7axo"]
 
 [ext_resource type="Script" path="res://LevelLoader.gd" id="1_0e57u"]
+[ext_resource type="PackedScene" uid="uid://bdjnrvpjnabgf" path="res://Levels/FinalEncounter.tscn" id="2_01w27"]
+[ext_resource type="PackedScene" uid="uid://t1fu7we6rjvk" path="res://Levels/EndScreen.tscn" id="2_64sgn"]
 [ext_resource type="PackedScene" uid="uid://cfctfjp5ubjka" path="res://Levels/IntroLevel.tscn" id="2_a0nxw"]
 [ext_resource type="PackedScene" uid="uid://cpvjgm45njdno" path="res://Levels/room2.tscn" id="2_cu2i4"]
 [ext_resource type="PackedScene" uid="uid://bv75bwsxpd6u7" path="res://Tools/escape_clause.tscn" id="3_q5bf5"]
 [ext_resource type="PackedScene" uid="uid://cey7w13sn3q0r" path="res://Levels/room1.tscn" id="3_vbhbq"]
 [ext_resource type="AudioStream" uid="uid://c37wx1vkkp3vr" path="res://SFX/noiseSweep.wav" id="4_7bmk3"]
 [ext_resource type="PackedScene" uid="uid://d4fostg4cyahx" path="res://Music/DJ.tscn" id="5_83j1g"]
+[ext_resource type="PackedScene" uid="uid://e26tga8qpeoy" path="res://Levels/room3.tscn" id="5_vs54f"]
 [ext_resource type="Texture2D" uid="uid://de5nihqwvrk16" path="res://icon.svg" id="7_w7cjd"]
 
 [sub_resource type="Animation" id="Animation_xf7v2"]
@@ -143,14 +146,14 @@ _data = {
 "ReverseSweep": SubResource("Animation_hducb")
 }
 
-[sub_resource type="Gradient" id="Gradient_ph1ex"]
+[sub_resource type="Gradient" id="Gradient_ttl57"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6p1ib"]
-gradient = SubResource("Gradient_ph1ex")
+gradient = SubResource("Gradient_ttl57")
 width = 32
 height = 32
 fill_to = Vector2(1, 1)
@@ -166,7 +169,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0e57u")
-levels = Array[PackedScene]([ExtResource("2_a0nxw"), ExtResource("3_vbhbq"), ExtResource("2_cu2i4")])
+levels = Array[PackedScene]([ExtResource("2_a0nxw"), ExtResource("3_vbhbq"), ExtResource("2_cu2i4"), ExtResource("5_vs54f"), ExtResource("2_01w27"), ExtResource("2_64sgn")])
 
 [node name="Zoomin" type="Camera2D" parent="."]
 position = Vector2(1280, 720)

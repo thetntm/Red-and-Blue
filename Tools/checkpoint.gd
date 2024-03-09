@@ -15,3 +15,4 @@ func _process(delta):
 func _on_trigger_body_entered(body):
 	if body is Player:
 		body.startingPoint = position + respawnOffset;
+	queue_free();
