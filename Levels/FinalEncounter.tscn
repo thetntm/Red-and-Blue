@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bdjnrvpjnabgf"]
+[gd_scene load_steps=39 format=3 uid="uid://bdjnrvpjnabgf"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_p80vu"]
 [ext_resource type="PackedScene" uid="uid://d08elk5st0yjl" path="res://Dither (player Character)/player.tscn" id="2_5iyii"]
@@ -19,7 +19,6 @@
 [ext_resource type="AudioStream" uid="uid://bek0csgomcdw0" path="res://Music/Famitracker/a dream of a memory.wav" id="12_pk282"]
 [ext_resource type="AudioStream" uid="uid://q7kqm0cyc5pd" path="res://SFX/Displacement.wav" id="13_wgxqi"]
 [ext_resource type="AudioStream" uid="uid://cleg6qkkve3m6" path="res://Music/An Answer.wav" id="14_7yqtc"]
-[ext_resource type="PackedScene" uid="uid://bv75bwsxpd6u7" path="res://Tools/escape_clause.tscn" id="16_stflt"]
 [ext_resource type="PackedScene" uid="uid://cxjk5gr8luws8" path="res://Textbox/just_text.tscn" id="17_mcr0w"]
 [ext_resource type="Theme" uid="uid://bpmgyldx7d05y" path="res://Textbox/themes/noDrop.tres" id="18_l41sg"]
 [ext_resource type="PackedScene" uid="uid://ca5itua3lt7ql" path="res://Shard/shattered_moon.tscn" id="19_ei52r"]
@@ -672,8 +671,6 @@ frame_progress = 0.0
 offset_right = 2552.0
 offset_bottom = 1430.0
 color = Color(1, 1, 1, 0)
-
-[node name="Escape Clause" parent="." instance=ExtResource("16_stflt")]
 
 [node name="Trigger" parent="." instance=ExtResource("21_sf04c")]
 position = Vector2(-565, -41)

@@ -111,8 +111,8 @@ position = Vector2(88, 208)
 [connection signal="level_started" from="." to="CanvasLayer/TextBoxChain" method="begin"]
 [connection signal="portal_entered" from="Levels/DualLevel/EndPortal" to="." method="player_reached_portal"]
 [connection signal="finished" from="CanvasLayer/TextBoxChain" to="Player" method="enable"]
-[connection signal="started" from="CanvasLayer/TextBoxChain" to="." method="fade_out_drums"]
 [connection signal="started" from="CanvasLayer/TextBoxChain" to="." method="fade_in_bass"]
+[connection signal="started" from="CanvasLayer/TextBoxChain" to="." method="fade_out_drums"]
 [connection signal="started" from="CanvasLayer/TextBoxChain" to="Player" method="disable"]
 
 [editable path="Player"]

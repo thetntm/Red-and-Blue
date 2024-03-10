@@ -13,6 +13,7 @@ config_version=5
 config/name="Red and Blue"
 run/main_scene="res://title_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/image="res://Untitled.png"
 config/icon="res://icon.svg"
 
 [display]

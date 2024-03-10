@@ -2,6 +2,9 @@ class_name Player extends CharacterBody2D
 
 enum states {IDLE,WALKING,JUMPING,FALLING,DYING};
 
+signal shiftB;
+signal shiftR;
+
 @onready var animator : AnimationPlayer = $CharacterAnimator;
 @onready var blueSprite : Sprite2D = $blueshade/blueSprite;
 @onready var redSprite : Sprite2D = $redshade/redSprite;
@@ -89,6 +92,7 @@ func shift():
 				currentMode = modes.BLUE;
 				set_collision();
 				warpSound2.play();
+				emit_signal("shiftB");
 			else:
 				noShift.play();
 				if state == states.IDLE:
@@ -100,6 +104,7 @@ func shift():
 				currentMode = modes.RED;
 				set_collision();
 				warpSound1.play();
+				emit_signal("shiftR");
 			else:
 				noShift.play();
 				if state == states.IDLE:

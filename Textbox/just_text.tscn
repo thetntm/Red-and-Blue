@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxjk5gr8luws8"]
+[gd_scene load_steps=8 format=3 uid="uid://cxjk5gr8luws8"]
 
 [ext_resource type="Theme" uid="uid://c16khq8ti63x2" path="res://Textbox/themes/redDrop.tres" id="1_sxae5"]
 [ext_resource type="Script" path="res://Textbox/TextBox.gd" id="2_6ab7a"]
@@ -6,13 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dgobsl71ymgxx" path="res://Textbox/pfp_blue2.png" id="4_eiio3"]
 [ext_resource type="AudioStream" uid="uid://bsolkw4pg08os" path="res://Textbox/blipSelect.wav" id="5_1ywqh"]
 [ext_resource type="Shader" path="res://shaders/UIChromatic.gdshader" id="7_8nobq"]
-
-[sub_resource type="Gradient" id="Gradient_vgdej"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 0.690196)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hac01"]
-gradient = SubResource("Gradient_vgdej")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nrwoj"]
 shader = ExtResource("7_8nobq")
@@ -38,28 +31,6 @@ charSprites = Array[Texture2D]([ExtResource("3_346p3"), ExtResource("4_eiio3")])
 [node name="Noise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1ywqh")
 volume_db = -13.308
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0940938
-anchor_top = 0.0554722
-anchor_right = 0.906094
-anchor_bottom = 0.416472
-offset_left = -0.176025
-offset_top = 96.024
-offset_right = 0.0799561
-offset_bottom = 96.056
-grow_horizontal = 2
-texture = SubResource("GradientTexture2D_hac01")
-region_rect = Rect2(0, 0, 48, 48)
-patch_margin_left = 16
-patch_margin_top = 16
-patch_margin_right = 16
-patch_margin_bottom = 16
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
 z_index = 1

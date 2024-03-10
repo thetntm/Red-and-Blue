@@ -405,6 +405,7 @@ texture = ExtResource("7_7okgg")
 [node name="BigInvisibleSprite" parent="blueshade" instance=ExtResource("19_1l6y4")]
 
 [node name="redshade" type="CanvasGroup" parent="."]
+z_index = -1
 material = SubResource("ShaderMaterial_akwwd")
 use_parent_material = true
 
