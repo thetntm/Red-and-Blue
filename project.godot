@@ -14,12 +14,15 @@ config/name="Red and Blue"
 run/main_scene="res://title_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://Untitled.png"
-config/icon="res://icon.svg"
+config/icon="res://Dither (player Character)/icon.svg"
+config/windows_native_icon="res://Dither (player Character)/icon.ico"
 
 [display]
 
 window/size/viewport_width=2560
 window/size/viewport_height=1440
+window/size/mode=3
+window/size/borderless=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 

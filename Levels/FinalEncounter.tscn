@@ -472,7 +472,14 @@ textBoxes = [NodePath("TextBox")]
 [node name="TextBox" parent="CanvasLayer/An Explanation2" instance=ExtResource("17_mcr0w")]
 layout_mode = 1
 theme = ExtResource("18_l41sg")
-textLines = Array[String](["Long ago, a [Crystaline Moon] hovered in the skies above your planet.", "It was made out of hundreds of [Shards].", "These [Shards] monitored the people living on your planet,", "and used their great [Powers] to grant the people's [Desires].", "We were one such shard.", "Using our powers of [Duplication], we could create perfect copies of any creature or object...", "Our copies were flawless, with no way to tell what was the copy and what was the original.", "It was such a truly wonderous [Power].", "and then..."])
+textLines = Array[String](["Long ago, a [Crystaline Moon] hovered in
+the skies above your planet.", "It was made out of hundreds of [Shards].", "These [Shards] monitored the people
+living on your planet,", "and used their great [Powers] to grant the
+people's [Desires].", "We were one such shard.", "Using our powers of [Duplication], we
+could create perfect copies of any
+creature or object...", "Our copies were flawless, with no way to
+tell what was the copy and what was the
+original.", "It was such a truly wonderous [Power].", "and then..."])
 skippable = false
 
 [node name="An Explanation3" parent="CanvasLayer" node_paths=PackedStringArray("textBoxes") instance=ExtResource("10_rhr8m")]
@@ -482,7 +489,9 @@ textBoxes = [NodePath("TextBox")]
 [node name="TextBox" parent="CanvasLayer/An Explanation3" instance=ExtResource("17_mcr0w")]
 layout_mode = 1
 theme = ExtResource("18_l41sg")
-textLines = Array[String](["The [Crystaline Moon] was [Shattered].", "Its shards fell, scattering across the surface of the Earth...", "Burying themselves in your oceans and drowning themselves in your soil...", "Only, in our case..."])
+textLines = Array[String](["The [Crystaline Moon] was [Shattered].", "Its shards fell, scattering across the
+surface of the Earth...", "Burying themselves in your oceans and
+drowning themselves in your soil...", "Only, in our case..."])
 skippable = false
 
 [node name="An Explanation4" parent="CanvasLayer" node_paths=PackedStringArray("textBoxes") instance=ExtResource("10_rhr8m")]
@@ -492,11 +501,16 @@ textBoxes = [NodePath("TextBox")]
 [node name="TextBox" parent="CanvasLayer/An Explanation4" instance=ExtResource("17_mcr0w")]
 layout_mode = 1
 theme = ExtResource("18_l41sg")
-textLines = Array[String](["Our body hit hard rock, and with the impact a small crack formed.", "The slightest of imperfections...", "An [Abberation].", "At first, we did not notice it.", "The crack was infintesimally small...", "But over time, it grew.", "In the years before we noticed the crack, a [Hero] appeared.", "They weilded a strange and powerful blade.", "They claimed that the blade could kill us.", "But unfortunately, we were the ones who proved capable of killing them.", "After their death, no more [Heroes] appeared.", "And the crack continued to grow...", "Now, our copies are no longer perfect.", "We have little to no control over our own demesne...", "And the imperfections are slowly driving us mad.", "We ask of you... take the Blade.", "Drive it through our crystal.", "Kill us."])
+textLines = Array[String](["Our body hit hard rock, and with the impact
+a small crack formed.", "The slightest of imperfections...", "An [Abberation].", "At first, we did not notice it.", "The crack was infintesimally small...", "But over time, it grew.", "In the years before we noticed the crack, a
+[Hero] appeared.", "They weilded a strange and powerful blade.", "They claimed that the blade could kill us.", "But unfortunately, we were the ones who
+proved capable of killing them.", "After their death, no more [Heroes]
+appeared.", "And the crack continued to grow...", "Now, our copies are no longer perfect.", "We have little to no control over our own
+demesne...", "And the imperfections are slowly driving
+us mad.", "We ask of you... take the Blade.", "Drive it through our crystal.", "Kill us."])
 skippable = false
 
 [node name="An Answer" parent="CanvasLayer" node_paths=PackedStringArray("textBoxes") instance=ExtResource("10_rhr8m")]
-visible = false
 textBoxes = [NodePath("TextBox"), NodePath("TextBox2"), NodePath("TextBox3"), NodePath("TextBox4"), NodePath("TextBox5"), NodePath("TextBox6"), NodePath("TextBox7"), NodePath("TextBox8"), NodePath("TextBox9"), NodePath("TextBox10"), NodePath("TextBox11"), NodePath("TextBox12"), NodePath("TextBox13"), NodePath("TextBox14"), NodePath("TextBox15"), NodePath("TextBox16"), NodePath("TextBox17"), NodePath("TextBox18"), NodePath("TextBox19"), NodePath("TextBox20"), NodePath("TextBox21"), NodePath("TextBox22"), NodePath("TextBox23"), NodePath("TextBox24")]
 
 [node name="TextBox" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
@@ -512,37 +526,53 @@ textLines = Array[String](["We're not gonna do that."])
 [node name="TextBox3" parent="CanvasLayer/An Answer" instance=ExtResource("17_mcr0w")]
 layout_mode = 1
 theme = ExtResource("18_l41sg")
-textLines = Array[String](["What?"])
+textLines = Array[String](["What?", "Why Not?"])
 skippable = false
 
 [node name="TextBox4" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
-textLines = Array[String](["Well, in my case...", "I'm wildly suspicious of this whole scenario.", "You just nonchallantly drop us in this situation, reveal that you KILLED someone,", "and now you expect us to work with you?"])
+textLines = Array[String](["Well, in my case...", "I'm wildly suspicious of this
+whole scenario.", "You just nonchallantly drop us
+in this situation, reveal that
+you KILLED someone,", "and now you expect us to work
+with you?"])
 charSprites = Array[Texture2D]([ExtResource("22_wj2ya"), ExtResource("23_ij15l")])
 
 [node name="TextBox5" parent="CanvasLayer/An Answer" instance=ExtResource("17_mcr0w")]
 layout_mode = 1
 theme = ExtResource("18_l41sg")
-textLines = Array[String](["It was meant to convey to you the danger in letting us live.", "We are a monster. One who slays heroes.", "You should become a hero by killing us.", "Isn't it straightforward?"])
+textLines = Array[String](["It was meant to convey to you the danger in
+letting us live.", "We are a monster. One who slays heroes.", "You should slay the monster.", "Isn't it straightforward?"])
 skippable = false
 
 [node name="TextBox6" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
 theme = ExtResource("12_gi80m")
-textLines = Array[String](["And I have my own reasons for not wanting to... do this.", "This whole situation... is it really that drastic?", "That crack... is it painful?"])
+textLines = Array[String](["And I have my own reasons for
+not wanting to... do this.", "This whole situation... is it
+really that drastic?", "Sure, that crack looks
+painful...", "But is there really no way to
+heal that pain other than ending
+your life?"])
 
 [node name="TextBox7" parent="CanvasLayer/An Answer" instance=ExtResource("17_mcr0w")]
 layout_mode = 1
 theme = ExtResource("18_l41sg")
-textLines = Array[String](["I cannot feel pain.", "Not in the way you Humans can.", "But... the imperfections. ", "The [Abberations].", "I can no longer be what I once was.", "I can no longer do what I once did.", "And that feeling... it makes me desire an ending."])
+textLines = Array[String](["I cannot feel pain.", "Not in the way you Humans can.", "But... the imperfections. ", "The [Abberations].", "I can no longer be what I once was.", "I can no longer do what I once did.", "And that feeling... it makes me desire an
+ending."])
 skippable = false
 
 [node name="TextBox8" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
 theme = ExtResource("12_gi80m")
-textLines = Array[String](["That's some BULLSHIT.", "You're depressed because your magical superpowers don't work,", "and you want US to kill you because of that?"])
+textLines = Array[String](["That's kinda fucked up.", "Just because your copies are
+imperfect? That's the entire
+reason?", "You still have power. Heck, you
+used that power to create this
+entire realm!"])
 
 [node name="TextBox8(broken)" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
+visible = false
 layout_mode = 1
 offset_right = -512.0
 offset_bottom = -288.0
@@ -551,18 +581,20 @@ textLines = Array[String](["That's some BULLSHIT.", "You're depressed because yo
 
 [node name="TextBox9" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
-textLines = Array[String](["Hold up.", "If we kill you, then...", "What happens to us?"])
+textLines = Array[String](["Hold up.", "Even if we did agree to kill you,
+then...", "What happens to this world?", "What happens to us?"])
 charSprites = Array[Texture2D]([ExtResource("22_wj2ya"), ExtResource("23_ij15l")])
 
 [node name="TextBox10" parent="CanvasLayer/An Answer" instance=ExtResource("17_mcr0w")]
 layout_mode = 1
 theme = ExtResource("18_l41sg")
-textLines = Array[String](["This realm... my Demesne...", "It will collapse in on itself.", "You will emerge from it as you were before.", "I can promise you, you will emerge unharmed.", "That is to say, the \"True\" you.", "The \"Imperfect Copy,\" of course, will fade."])
+textLines = Array[String](["This realm... my Demesne...", "It will collapse in on itself.", "You will emerge from it as you were before.", "I can promise you, you will emerge
+unharmed.", "That is to say, the \"True\" you.", "The \"Imperfect Copy,\" of course, will fade."])
 skippable = false
 
 [node name="TextBox11" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
-textLines = Array[String](["No!!!!!", "Are you kidding me?"])
+textLines = Array[String](["What?!?!?", "Are you kidding me?"])
 charSprites = Array[Texture2D]([ExtResource("22_wj2ya"), ExtResource("23_ij15l")])
 
 [node name="TextBox12" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
@@ -571,6 +603,7 @@ theme = ExtResource("12_gi80m")
 textLines = Array[String](["Yeah, no.", "I don't want that either."])
 
 [node name="TextBox12(broken)" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
+visible = false
 layout_mode = 1
 offset_right = -512.0
 offset_bottom = -288.0
@@ -579,7 +612,10 @@ textLines = Array[String](["Yeah, no.", "I don't want that either."])
 
 [node name="TextBox13" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
-textLines = Array[String](["Why the fuck would we want that to happen?", "Even if I'm the \"True\" copy and Blue is the \"Imperfect\" one...", "Then that means I'd essentially be killing Blue as well!"])
+textLines = Array[String](["Why on earth would we want that to happen?", "Even if I'm the \"True\" copy and
+Blue is the \"Imperfect\" one...", "Then that means by killing you 
+I'd essentially be killing Blue
+as well!"])
 charSprites = Array[Texture2D]([ExtResource("22_wj2ya"), ExtResource("23_ij15l")])
 
 [node name="TextBox14" parent="CanvasLayer/An Answer" instance=ExtResource("17_mcr0w")]
@@ -591,9 +627,16 @@ skippable = false
 [node name="TextBox15" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
 theme = ExtResource("12_gi80m")
-textLines = Array[String](["Listen...", "I think you're going about this whole thing wrong.", "This whole... \"Demesne\" of yours.", "The \"Abberations\" and \"Flaws\" that you see.", "I don't think that they're really flawed at all.", "Or rather... the fact that they're flawed is what makes them beautiful."])
+textLines = Array[String](["Listen...", "I think you're going about this
+whole thing wrong.", "This whole... \"Demesne\" of
+yours.", "The \"Abberations\" and \"Flaws\"
+that you see.", "I don't think that they're
+really flawed at all.", "Or rather... the fact that
+they're flawed is what makes
+them beautiful."])
 
 [node name="TextBox15(broken)" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
+visible = false
 layout_mode = 1
 offset_right = -512.0
 offset_bottom = -288.0
@@ -608,18 +651,24 @@ skippable = false
 
 [node name="TextBox17" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
-textLines = Array[String](["I mean, yeah.", "At the very least, it's a cool looking effect."])
+textLines = Array[String](["I mean, yeah.", "At the very least, it's a cool
+looking effect."])
 charSprites = Array[Texture2D]([ExtResource("22_wj2ya"), ExtResource("23_ij15l")])
 
 [node name="TextBox18" parent="CanvasLayer/An Answer" instance=ExtResource("17_mcr0w")]
 layout_mode = 1
 theme = ExtResource("18_l41sg")
-textLines = Array[String](["...", "Hrm.", "I suppose there is another way forward, then.", "Instead of killing me...", "You may bind yourself to my power.", "I will become a part of you...", "And you may use my power as you see fit.", "You must agree to this.", "There is simply no other way out of this place."])
+textLines = Array[String](["...", "Hrm.", "I suppose there is another way forward,
+then.", "Instead of killing me...", "You may bind yourself to my power.", "I will become a part of you...", "And you may use my power as you see fit.", "Together, we can look for another way to
+heal me.", "Perhaps one of the other [Shards] will
+hold this power.", "You must understand.", "I cannot leave this place on my own."])
 skippable = false
 
 [node name="TextBox19" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
-textLines = Array[String](["This whole situation is still sus as hell.", "But I guess we don't really have another choice."])
+textLines = Array[String](["This whole situation is still sus
+as hell.", "But I guess we don't really have
+another choice."])
 charSprites = Array[Texture2D]([ExtResource("22_wj2ya"), ExtResource("23_ij15l")])
 
 [node name="TextBox20" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
@@ -636,18 +685,24 @@ skippable = false
 [node name="TextBox21" parent="CanvasLayer/An Answer" instance=ExtResource("17_mcr0w")]
 layout_mode = 1
 theme = ExtResource("18_l41sg")
-textLines = Array[String](["You must express a [Desire]. Something deep from within your heart.", "Your Desire will shape the power that manifests within you."])
+textLines = Array[String](["You must express a [Desire]. Something
+deep from within your heart.", "Your Desire will shape the power that
+manifests within you."])
 skippable = false
 
 [node name="TextBox22" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
-textLines = Array[String](["Alright then.", "I desire... to keep Blue alive."])
+textLines = Array[String](["Alright then.", "If the desire shapes the power,
+then...", "My deepest desire is for Blue
+and I...", "To stay together.", "I want us to continue being able
+to exist like this.", "Seperate, but together."])
 charSprites = Array[Texture2D]([ExtResource("22_wj2ya"), ExtResource("23_ij15l")])
 
 [node name="TextBox23" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
 theme = ExtResource("12_gi80m")
-textLines = Array[String](["And I want Red to stay alive."])
+textLines = Array[String](["I desire the same thing.", "It's really nice, having a
+partner to talk to like this."])
 
 [node name="TextBox23 (wrong kind)" parent="CanvasLayer/An Answer" instance=ExtResource("17_mcr0w")]
 layout_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcovg5jyu7axo"]
+[gd_scene load_steps=19 format=3 uid="uid://bcovg5jyu7axo"]
 
 [ext_resource type="Script" path="res://LevelLoader.gd" id="1_0e57u"]
 [ext_resource type="PackedScene" uid="uid://bdjnrvpjnabgf" path="res://Levels/FinalEncounter.tscn" id="2_01w27"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://d4fostg4cyahx" path="res://Music/DJ.tscn" id="5_83j1g"]
 [ext_resource type="PackedScene" uid="uid://e26tga8qpeoy" path="res://Levels/room3.tscn" id="5_vs54f"]
 [ext_resource type="PackedScene" uid="uid://big56lc23wy2e" path="res://Levels/room5.tscn" id="7_eukhd"]
-[ext_resource type="Texture2D" uid="uid://de5nihqwvrk16" path="res://icon.svg" id="7_w7cjd"]
 
 [sub_resource type="Animation" id="Animation_xf7v2"]
 resource_name = "DiagonalSweep"
@@ -205,13 +204,6 @@ stream = ExtResource("4_7bmk3")
 volume_db = -12.48
 
 [node name="Dj" parent="." instance=ExtResource("5_83j1g")]
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 1766.0
-offset_bottom = 1069.0
-texture = ExtResource("7_w7cjd")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
