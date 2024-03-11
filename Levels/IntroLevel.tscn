@@ -669,7 +669,7 @@ theme = ExtResource("12_6yfon")
 textLines = Array[String](["One night, a voice called to me from within 
 my mind.", "It pulsed through my entire being...", "\"We are broken...\"", "\"You must help us...\"", "Night after night, the voice repeated
 itself.", "And so, eventually...", "I wandered out at night, following that
-haunting voice.", "Following it to the place it called...", "\"The Abberation\""])
+haunting voice.", "Following it to the place it called...", "\"The Aberration\""])
 skippable = false
 
 [node name="StartingDialogue" parent="CanvasLayer" node_paths=PackedStringArray("textBoxes") instance=ExtResource("11_fvcwp")]
@@ -714,7 +714,7 @@ layout_mode = 1
 theme = ExtResource("20_keamt")
 textLines = Array[String](["Seems like it.", "I think it has something to do
 with us being near the
-Abberation."])
+Aberration."])
 
 [node name="TextBox4" parent="CanvasLayer/RedAndBlueSpeak" instance=ExtResource("12_favr4")]
 layout_mode = 1

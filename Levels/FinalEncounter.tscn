@@ -502,7 +502,7 @@ textBoxes = [NodePath("TextBox")]
 layout_mode = 1
 theme = ExtResource("18_l41sg")
 textLines = Array[String](["Our body hit hard rock, and with the impact
-a small crack formed.", "The slightest of imperfections...", "An [Abberation].", "At first, we did not notice it.", "The crack was infintesimally small...", "But over time, it grew.", "In the years before we noticed the crack, a
+a small crack formed.", "The slightest of imperfections...", "An [Aberration].", "At first, we did not notice it.", "The crack was infintesimally small...", "But over time, it grew.", "In the years before we noticed the crack, a
 [Hero] appeared.", "They weilded a strange and powerful blade.", "They claimed that the blade could kill us.", "But unfortunately, we were the ones who
 proved capable of killing them.", "After their death, no more [Heroes]
 appeared.", "And the crack continued to grow...", "Now, our copies are no longer perfect.", "We have little to no control over our own
@@ -558,7 +558,7 @@ your life?"])
 [node name="TextBox7" parent="CanvasLayer/An Answer" instance=ExtResource("17_mcr0w")]
 layout_mode = 1
 theme = ExtResource("18_l41sg")
-textLines = Array[String](["I cannot feel pain.", "Not in the way you Humans can.", "But... the imperfections. ", "The [Abberations].", "I can no longer be what I once was.", "I can no longer do what I once did.", "And that feeling... it makes me desire an
+textLines = Array[String](["I cannot feel pain.", "Not in the way you Humans can.", "But... the imperfections. ", "The [Aberrations].", "I can no longer be what I once was.", "I can no longer do what I once did.", "And that feeling... it makes me desire an
 ending."])
 skippable = false
 
@@ -581,6 +581,8 @@ textLines = Array[String](["That's some BULLSHIT.", "You're depressed because yo
 
 [node name="TextBox9" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
+offset_top = 1.0
+offset_bottom = -1151.0
 textLines = Array[String](["Hold up.", "Even if we did agree to kill you,
 then...", "What happens to this world?", "What happens to us?"])
 charSprites = Array[Texture2D]([ExtResource("22_wj2ya"), ExtResource("23_ij15l")])
@@ -621,7 +623,7 @@ charSprites = Array[Texture2D]([ExtResource("22_wj2ya"), ExtResource("23_ij15l")
 [node name="TextBox14" parent="CanvasLayer/An Answer" instance=ExtResource("17_mcr0w")]
 layout_mode = 1
 theme = ExtResource("18_l41sg")
-textLines = Array[String](["But...", "The Abberations.", "The flaws.", "Do you not hate them?", "Do you not wish to be rid of them?"])
+textLines = Array[String](["But...", "The Aberrations.", "The flaws.", "Do you not hate them?", "Do you not wish to be rid of them?"])
 skippable = false
 
 [node name="TextBox15" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
@@ -629,7 +631,7 @@ layout_mode = 1
 theme = ExtResource("12_gi80m")
 textLines = Array[String](["Listen...", "I think you're going about this
 whole thing wrong.", "This whole... \"Demesne\" of
-yours.", "The \"Abberations\" and \"Flaws\"
+yours.", "The \"Aberrations\" and \"Flaws\"
 that you see.", "I don't think that they're
 really flawed at all.", "Or rather... the fact that
 they're flawed is what makes
@@ -651,6 +653,8 @@ skippable = false
 
 [node name="TextBox17" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
+offset_top = 2.0
+offset_bottom = -1150.0
 textLines = Array[String](["I mean, yeah.", "At the very least, it's a cool
 looking effect."])
 charSprites = Array[Texture2D]([ExtResource("22_wj2ya"), ExtResource("23_ij15l")])
