@@ -46,7 +46,9 @@ offset_right = -76.6001
 offset_bottom = 78.2399
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
-text = "I cannot leave this place on my own."
+text = "One night, a voice called to me from within 
+
+my mind."
 autowrap_mode = 2
 justification_flags = 0
 clip_text = true

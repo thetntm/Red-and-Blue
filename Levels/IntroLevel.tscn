@@ -661,13 +661,12 @@ shape = SubResource("WorldBoundaryShape2D_qincw")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="IntroCrawlText" parent="CanvasLayer" node_paths=PackedStringArray("textBoxes") instance=ExtResource("11_fvcwp")]
-visible = false
 textBoxes = [NodePath("IntroText1")]
 
 [node name="IntroText1" parent="CanvasLayer/IntroCrawlText" instance=ExtResource("17_x18v1")]
 layout_mode = 1
 theme = ExtResource("12_6yfon")
-textLines = Array[String](["One night, a voice called to me from within
+textLines = Array[String](["One night, a voice called to me from within 
 my mind.", "It pulsed through my entire being...", "\"We are broken...\"", "\"You must help us...\"", "Night after night, the voice repeated
 itself.", "And so, eventually...", "I wandered out at night, following that
 haunting voice.", "Following it to the place it called...", "\"The Abberation\""])
