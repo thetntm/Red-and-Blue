@@ -690,15 +690,16 @@ skippable = false
 layout_mode = 1
 theme = ExtResource("18_l41sg")
 textLines = Array[String](["You must express a [Desire]. Something
-deep from within your heart.", "Your Desire will shape the power that
-manifests within you."])
+from within your heart.", "Doing this will collapse the [Demesne].", "However, the power I have will shape itself
+to your desire.", "With the right wording, you may perpetuate
+each other's existence."])
 skippable = false
 
 [node name="TextBox22" parent="CanvasLayer/An Answer" instance=ExtResource("11_uwra8")]
 layout_mode = 1
 textLines = Array[String](["Alright then.", "If the desire shapes the power,
-then...", "My deepest desire is for Blue
-and I...", "To stay together.", "I want us to continue being able
+then...", "My desire is for Blue and I
+to stay together.", "I want us to continue being able
 to exist like this.", "Seperate, but together."])
 charSprites = Array[Texture2D]([ExtResource("22_wj2ya"), ExtResource("23_ij15l")])
 
