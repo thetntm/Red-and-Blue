@@ -8,6 +8,8 @@ class_name LevelLoader extends Control
 
 @onready var subview : SubViewport = $SubViewport;
 
+@onready var levelRect = $Level;
+
 var currentLevel = 0;
 
 var levelReference;

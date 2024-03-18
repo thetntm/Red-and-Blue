@@ -54,6 +54,12 @@ enum modes {NIL,GODOTISSTUPIDSOMETIMES,RED,BLUE,ALL}
 var currentMode = modes.RED;
 
 func _ready():
+	#This is in place so we can still run our level scenes without the loader.
+	#good for developers!
+	var tempLink = get_node_or_null("/root/Loader/Level");
+	if tempLink:
+		finalPassShader.queue_free();
+		finalPassShader = tempLink;
 	animator.play("Idle")
 	set_collision();
 	#set_collision_mask_value(currentMode,true);

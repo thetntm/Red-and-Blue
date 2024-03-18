@@ -1,4 +1,4 @@
-class_name FinalPass extends ColorRect
+class_name FinalPass extends Control;
 
 enum modes {NIL,PLAYER,RED,BLUE,ALL};
 

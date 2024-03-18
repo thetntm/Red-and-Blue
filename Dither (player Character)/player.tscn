@@ -358,6 +358,7 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sttdv"]
 shader = ExtResource("8_k8eck")
 shader_parameter/mode = 1
+shader_parameter/useScreen = true
 shader_parameter/blue_thresh = 0.05
 shader_parameter/red_thresh = 0.7
 

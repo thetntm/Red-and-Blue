@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcovg5jyu7axo"]
+[gd_scene load_steps=24 format=3 uid="uid://bcovg5jyu7axo"]
 
 [ext_resource type="Script" path="res://LevelLoader.gd" id="1_0e57u"]
 [ext_resource type="PackedScene" uid="uid://bdjnrvpjnabgf" path="res://Levels/FinalEncounter.tscn" id="2_01w27"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://e26tga8qpeoy" path="res://Levels/room3.tscn" id="5_vs54f"]
 [ext_resource type="PackedScene" uid="uid://big56lc23wy2e" path="res://Levels/room5.tscn" id="7_eukhd"]
 [ext_resource type="PackedScene" uid="uid://bv75bwsxpd6u7" path="res://Tools/escape_clause.tscn" id="12_pnblw"]
+[ext_resource type="Texture2D" uid="uid://de5nihqwvrk16" path="res://icon.svg" id="12_xpduu"]
+[ext_resource type="Shader" path="res://shaders/Whitechromatic.gdshader" id="13_qu1py"]
+[ext_resource type="Script" path="res://Dither (player Character)/Finalpass.gd" id="14_ea3k8"]
 
 [sub_resource type="Animation" id="Animation_xf7v2"]
 resource_name = "DiagonalSweep"
@@ -159,6 +162,13 @@ width = 32
 height = 32
 fill_to = Vector2(1, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yo7f8"]
+shader = ExtResource("13_qu1py")
+shader_parameter/mode = 0
+shader_parameter/useScreen = false
+shader_parameter/blue_thresh = 0.1
+shader_parameter/red_thresh = 0.1
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_qt5dq"]
 viewport_path = NodePath("SubViewport")
 
@@ -170,7 +180,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0e57u")
-levels = Array[PackedScene]([ExtResource("2_a0nxw"), ExtResource("3_vbhbq"), ExtResource("2_cu2i4"), ExtResource("5_vs54f"), ExtResource("2_e20ka"), ExtResource("7_eukhd"), ExtResource("2_01w27"), ExtResource("2_64sgn")])
+levels = Array[PackedScene]([ExtResource("3_vbhbq"), ExtResource("2_a0nxw"), ExtResource("2_cu2i4"), ExtResource("5_vs54f"), ExtResource("2_e20ka"), ExtResource("7_eukhd"), ExtResource("2_01w27"), ExtResource("2_64sgn")])
 
 [node name="Zoomin" type="Camera2D" parent="."]
 position = Vector2(1280, 720)
@@ -181,6 +191,7 @@ transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 size = Vector2i(2560, 1440)
+render_target_update_mode = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -206,10 +217,17 @@ volume_db = -12.48
 
 [node name="Dj" parent="." instance=ExtResource("5_83j1g")]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1280, 720)
+scale = Vector2(10.7969, 6.09375)
+texture = ExtResource("12_xpduu")
+
+[node name="Level" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_yo7f8")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("ViewportTexture_qt5dq")
+script = ExtResource("14_ea3k8")
 
 [node name="Escape Clause" parent="." instance=ExtResource("12_pnblw")]

@@ -1,5 +1,5 @@
 shader_type canvas_item;
-render_mode unshaded;
+render_mode blend_add;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
@@ -10,7 +10,7 @@ void fragment() {
 	
 	float displacedAlpha1 = texture(screen_texture, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE*displacement), 0.0).a;
 	float displacedAlpha2 = texture(screen_texture, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE*displacement * -1.0), 0.0).a;
-	c.a = displacedAlpha1 + displacedAlpha2 / 2.0;
+	c.a = displacedAlpha1 + displacedAlpha2;
 	
 	c.r = texture(screen_texture, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE*displacement), 0.0).r;
 	c.g = 0.0;

@@ -1,5 +1,5 @@
 shader_type canvas_item;
-render_mode unshaded;
+render_mode blend_add;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
@@ -16,15 +16,15 @@ void fragment() {
 	c.g = 0.0;
 	c.r = 0.0;
 	
-	if (c.b < 0.0001 && displacedAlpha > 0.001) {
-		displacedAlpha = 0.0;
-	}
+	//if (c.b < 0.0001 && displacedAlpha > 0.001) {
+	//	displacedAlpha = 0.0;
+	//}
 	
 	c.a = displacedAlpha;
 	
-	if (c.b > 0.02) {
-		c.a = 0.5;
-	}
+	//if (c.b > 0.02) {
+	//	c.a = 0.5;
+	//}
 	
 	COLOR = vec4(c.r, c.g, c.b, c.a);
 }
